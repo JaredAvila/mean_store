@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const users = require("./routes/api/users");
 const items = require("./routes/api/items");
+const admin = require("./routes/api/admin");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => res.send("hello"));
 //Use Routes
 app.use("/api/users", users);
 app.use("/api/items", items);
+app.use("/api/admin", admin);
 
 const port = 8000;
 
