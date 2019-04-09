@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
 
 //Load User model
 const User = require("../../models/User");
@@ -10,7 +12,7 @@ const User = require("../../models/User");
 //  @access           Public
 router.get("/test", (req, res) => res.json({ message: "Users works!" }));
 
-//  @route            GET api/users/register
+//  @route            POST api/users/register
 //  @desc             Register user
 //  @access           Public
 router.post("/register", (req, res) => {
@@ -47,7 +49,7 @@ router.post("/register", (req, res) => {
     .catch(err => console.log(err));
 });
 
-//  @route            GET api/users/login
+//  @route            POST api/users/login
 //  @desc             Login user / Returning JWT token
 //  @access           Public
 router.post("/login", (req, res) => {
@@ -65,7 +67,21 @@ router.post("/login", (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         //generate token
-        res.json({ message: "Success" });
+
+        const payload = {
+          id: user.id,
+          name: user.firstName
+        };
+
+        //sign the token
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          { expiresIn: 3600 },
+          (err, token) => {
+            res.json({ message: "success", token: "Bearer " + token });
+          }
+        );
       } else {
         return res.status(400).json({ password: "Password incorrect" });
       }
