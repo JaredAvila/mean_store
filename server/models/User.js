@@ -19,7 +19,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  card: {
+  cart: {
     type: Array
   },
   pastOrders: {
