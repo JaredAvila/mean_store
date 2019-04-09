@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const passport = require("passport");
 
 const users = require("./routes/api/users");
 const items = require("./routes/api/items");
@@ -21,7 +22,11 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch(err => console.log(err));
 
-app.get("/", (req, res) => res.send("hello"));
+//passport Middleware
+app.use(passport.initialize());
+
+//passport Config
+require("./config/passport")(passport);
 
 //Use Routes
 app.use("/api/users", users);

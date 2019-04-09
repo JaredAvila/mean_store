@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
+const passport = require("passport");
 
 //Load User model
 const User = require("../../models/User");
@@ -64,15 +65,13 @@ router.post("/login", (req, res) => {
     }
 
     //Check password
-    bcrypt.compare(password, user.password).then(isMatch => {
-      if (isMatch) {
+    bcrypt.compare(password, user.password).then(match => {
+      if (match) {
         //generate token
-
         const payload = {
           id: user.id,
           name: user.firstName
         };
-
         //sign the token
         jwt.sign(
           payload,
@@ -88,5 +87,16 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+//  @route            GET api/users/current
+//  @desc             Return current user
+//  @access           Private
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({ message: "success", user: req.user });
+  }
+);
 
 module.exports = router;
