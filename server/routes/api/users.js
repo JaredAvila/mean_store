@@ -31,7 +31,6 @@ router.post("/register", (req, res) => {
   //Check to see if email is already in DB
   User.findOne({ email: req.body.email })
     .then(user => {
-      console.log(user);
       if (user) {
         //User already exists
         errors.email = "There is already an account with that email.";

@@ -19,12 +19,50 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  cart: {
-    type: Array
-  },
-  pastOrders: {
-    type: Array
-  },
+  cart: [
+    {
+      id: {
+        type: String,
+        required: true
+      },
+      name: {
+        type: String,
+        required: true
+      },
+      price: {
+        type: String,
+        required: true
+      },
+      img: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  pastOrders: [
+    {
+      name: {
+        type: String,
+        required: true
+      },
+      desc: {
+        type: String,
+        required: true
+      },
+      quantity: {
+        type: Number,
+        required: true
+      },
+      totalPrice: {
+        type: Number,
+        required: true
+      },
+      purchaseDate: {
+        type: Date,
+        required: true
+      }
+    }
+  ],
   date: {
     type: Date,
     default: Date.now
