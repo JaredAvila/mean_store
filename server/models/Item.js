@@ -11,7 +11,13 @@ const ItemSchema = new Schema({
     type: String,
     required: true
   },
-  quantity: {
+  img: {
+    type: String
+  },
+  category: {
+    type: String
+  },
+  qty: {
     type: Number,
     required: true
   },
@@ -19,13 +25,20 @@ const ItemSchema = new Schema({
     type: Number,
     required: true
   },
-  img: {
-    type: String
+  sales: {
+    dateOfSale: {
+      type: Date
+    },
+    qty: {
+      type: Number,
+      default: 0
+    },
+    tot: {
+      type: Number,
+      default: 0
+    }
   },
-  category: {
-    type: String
-  },
-  date: {
+  dateAdded: {
     type: Date,
     default: Date.now
   }

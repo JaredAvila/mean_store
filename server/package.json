@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start": "node server.js",
-    "dev": "nodenomon server.js"
+    "dev": "nodemon server.js"
   },
   "author": "Jared Avila",
   "license": "ISC",

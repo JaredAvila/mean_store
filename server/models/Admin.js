@@ -3,23 +3,15 @@ const Schema = mongoose.Schema;
 
 //create schema
 const AdminSchema = new Schema({
-  superAdmin: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: "users"
+    ref: "users",
+    required: true
   },
-  admins: [
-    {
-      id: {
-        type: String
-      },
-      name: {
-        type: String
-      },
-      email: {
-        type: String
-      }
-    }
-  ],
+  userId: {
+    type: String,
+    required: true
+  },
   date: {
     type: Date,
     default: Date.now
