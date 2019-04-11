@@ -92,4 +92,59 @@ router.post("/category", (req, res) => {
     });
 });
 
+//  @route            POST api/items/addToCart
+//  @desc             Updates all item qtys in users cart array
+//  @access           Private
+router.post(
+  "/addToCart",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const user = req.user;
+    Item.findOne({ _id: req.body.itemId })
+      .then(item => {
+        //add itemId and quantity to users cart
+        user.cart.push({ itemId: item._id, qty: req.body.qty });
+        user.save().catch(err => {
+          if (err) return res.status(400).json({ message: "error", err });
+        });
+        res.json({ message: "success" });
+      })
+      .catch(err => res.status(400).json({ message: "error", error: err }));
+  }
+);
+
+//  @route            POST api/items/checkout
+//  @desc             Updates item sales and user pastOrders
+//  @access           Private
+router.post(
+  "/checkout",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const loggedInUser = req.user;
+    let { pastOrders, cart } = loggedInUser;
+    const { itemId, qty } = req.body;
+    Item.findOne({ _id: itemId }).then(item => {
+      if (!item)
+        return res.status(404).json({ message: "error, Item not found" });
+      let tot = qty * item.price;
+      let newSale = {
+        dateOfSale: new Date(),
+        qty,
+        tot
+      };
+      item.sales.push(newSale);
+      item.save().catch(err => {
+        if (err) return res.status(400).json({ message: "error", err });
+      });
+      User.findOne({ _id: loggedInUser.id })
+        .then(user => {
+          res.json({ message: "success", newSale, user, item });
+        })
+        .catch(err => {
+          if (err) return res.status(400).json({ message: "error", err });
+        });
+    });
+  }
+);
+
 module.exports = router;

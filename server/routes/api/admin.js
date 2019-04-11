@@ -27,7 +27,6 @@ router.post("/login", (req, res) => {
   if (!isValid) {
     return res.status(400).json(errors);
   }
-
   //Find user by email
   User.findOne({ email }).then(user => {
     //Check if user exists
@@ -36,19 +35,18 @@ router.post("/login", (req, res) => {
       return res.status(404).json(errors);
     }
     //Check if user is Admin
-    Admin.findOne({ userId: user._id }).then(admin => {
-      if (!admin) {
-        errors.admin = "Must register as an admin";
-        return res.status(404).json(errors);
-      }
-    });
+    if (user.status !== 301) {
+      errors.admin = "Must register as an admin";
+      return res.status(404).json(errors);
+    }
     //Check password
     bcrypt.compare(password, user.password).then(match => {
       if (match) {
         //generate token
         const payload = {
           id: user.id,
-          name: user.firstName
+          name: user.firstName,
+          status: 301
         };
         //sign the token
         jwt.sign(
@@ -91,7 +89,8 @@ router.post("/register", (req, res) => {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           email: req.body.email,
-          password: req.body.password
+          password: req.body.password,
+          status: 301
         });
         //hash the password before storing data
         bcrypt.genSalt(10, (err, salt) => {
@@ -121,54 +120,53 @@ router.post("/register", (req, res) => {
 //  @route            POST api/admin/addNew
 //  @desc             Creates new item
 //  @access           Private
-router.post("/addNew", (req, res) => {
-  Admin.findOne({ userId: req.body.id })
-    .then(admin => {
-      //If users ID does not matcht the admin's userId - kick them out!
-      if (!admin) {
-        return res.status(400).json({
-          message:
-            "You must be an admin to do that. Are you trying to hack me? Three strikes gets your IP reported. FYI"
-        });
-      }
-      //User's id matches admin's userId
-      const { errors, isValid } = validateItemInput(req.body);
-      //Check validation
-      if (!isValid) {
-        return res.status(400).json(errors);
-      }
-      //create new item and save
-      let newItem = new Item({
-        name: req.body.name,
-        desc: req.body.desc,
-        img: req.body.img,
-        category: req.body.category,
-        qty: req.body.qty,
-        price: req.body.price
+router.post(
+  "/addNew",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    console.log(req);
+    //check if logged in user is an admin
+    if (req.user.status != 301) {
+      return res.status(400).json({
+        message: "error",
+        error: "You must be an admin to do that"
       });
-      newItem
-        .save()
-        .then(item =>
-          res.json({ message: "successfully added a new item", item })
-        )
-        .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-});
+    }
+    const { errors, isValid } = validateItemInput(req.body);
+    //Check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    //create new item and save
+    let newItem = new Item({
+      name: req.body.name,
+      desc: req.body.desc,
+      img: req.body.img,
+      category: req.body.category,
+      price: req.body.price
+    });
+    newItem
+      .save()
+      .then(item =>
+        res.json({ message: "successfully added a new item", item })
+      )
+      .catch(err => console.log(err));
+  }
+);
 
 //  @route            PUT api/admin/editItem
 //  @desc             Edits an item
 //  @access           Private
-router.put("/editItem", (req, res) => {
-  Admin.findOne({ userId: req.body.userId }).then(admin => {
-    //If users ID does not matcht the admin's userId - kick them out!
-    if (!admin) {
-      return res.status(400).json({
-        message:
-          "You must be an admin to do that. Are you trying to hack me? Three strikes gets your IP reported. FYI"
-      });
+router.put(
+  "/editItem",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    //check if logged in user is an admin
+    if (req.user.status !== 301) {
+      return res
+        .status(400)
+        .json({ message: "error", error: "You must be an admin to do that" });
     }
-    //User's id matches admin's userId
     const { errors, isValid } = validateItemInput(req.body);
     //Check validation
     if (!isValid) {
@@ -188,31 +186,31 @@ router.put("/editItem", (req, res) => {
         item.desc = req.body.desc;
         item.img = req.body.img;
         item.category = req.body.category;
-        item.qty = req.body.qty;
         item.price = req.body.price;
         item.save().catch(err => console.log(err));
         res.json({ message: "success", item });
       })
       .catch(err => console.log(err));
-  });
-});
+  }
+);
 //  @route            DELETE api/admin/removeItem
 //  @desc             Deletes an item
 //  @access           Private
-router.delete("/removeItem", (req, res) => {
-  Admin.findOne({ userId: req.body.userId }).then(admin => {
-    //If users ID does not matcht the admin's userId - kick them out!
-    if (!admin) {
-      return res.status(400).json({
-        message:
-          "You must be an admin to do that. Are you trying to hack me? Three strikes gets your IP reported. FYI"
-      });
+router.delete(
+  "/removeItem",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    //check if logged in user is an admin
+    if (req.user.status !== 301) {
+      return res
+        .status(400)
+        .json({ message: "error", error: "You must be an admin to do that" });
     }
     //find item and delete it
     Item.findByIdAndDelete(req.body.itemId)
       .then(res.json({ message: "successfully deleted item" }))
       .catch(err => console.log(err));
-  });
-});
+  }
+);
 
 module.exports = router;

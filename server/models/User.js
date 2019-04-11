@@ -19,22 +19,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  status: {
+    type: Number,
+    default: 101
+  },
   cart: [
     {
-      id: {
+      itemId: {
         type: String,
         required: true
       },
-      name: {
-        type: String,
-        required: true
-      },
-      price: {
-        type: String,
-        required: true
-      },
-      img: {
-        type: String,
+      qty: {
+        type: Number,
         required: true
       }
     }
