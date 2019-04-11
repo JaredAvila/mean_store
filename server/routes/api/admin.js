@@ -8,10 +8,12 @@ const passport = require("passport");
 //load input validation
 const validateLoginInput = require("../../validation/login");
 const validateRegisterInput = require("../../validation/register");
+const validateItemInput = require("../../validation/newItem");
 
 //Load models
 const User = require("../../models/User");
 const Admin = require("../../models/Admin");
+const Item = require("../../models/Item");
 
 //  @route            POST api/admin/login
 //  @desc             Login user / Returning JWT token
@@ -114,6 +116,95 @@ router.post("/register", (req, res) => {
       }
     })
     .catch(err => console.log(err));
+});
+
+//  @route            POST api/admin/addNew
+//  @desc             Creates new item
+//  @access           Private
+router.post("/addNew", (req, res) => {
+  Admin.findOne({ userId: req.body.id })
+    .then(admin => {
+      //If users ID does not matcht the admin's userId - kick them out!
+      if (!admin) {
+        return res.status(400).json({
+          message:
+            "You must be an admin to do that. Are you trying to hack me? Three strikes gets your IP reported. FYI"
+        });
+      }
+      //User's id matches admin's userId
+      const { errors, isValid } = validateItemInput(req.body);
+      //Check validation
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
+      //create new item and save
+      let newItem = new Item({
+        name: req.body.name,
+        desc: req.body.desc,
+        img: req.body.img,
+        category: req.body.category,
+        qty: req.body.qty,
+        price: req.body.price
+      });
+      newItem
+        .save()
+        .then(item =>
+          res.json({ message: "successfully added a new item", item })
+        )
+        .catch(err => console.log(err));
+    })
+    .catch(err => console.log(err));
+});
+
+//  @route            PUT api/admin/editItem
+//  @desc             Edits an item
+//  @access           Private
+router.put("/editItem", (req, res) => {
+  Admin.findOne({ userId: req.body.userId }).then(admin => {
+    //If users ID does not matcht the admin's userId - kick them out!
+    if (!admin) {
+      return res.status(400).json({
+        message:
+          "You must be an admin to do that. Are you trying to hack me? Three strikes gets your IP reported. FYI"
+      });
+    }
+    //User's id matches admin's userId
+    const { errors, isValid } = validateItemInput(req.body);
+    //Check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    Item.findOne({ _id: req.body.itemId })
+      .then(item => {
+        item.name = req.body.name;
+        item.desc = req.body.desc;
+        item.img = req.body.img;
+        item.category = req.body.category;
+        item.qty = req.body.qty;
+        item.price = req.body.price;
+        item.save().catch(err => console.log(err));
+        res.json({ message: "success", item });
+      })
+      .catch(err => console.log(err));
+  });
+});
+//  @route            DELETE api/admin/removeItem
+//  @desc             Deletes an item
+//  @access           Private
+router.delete("/removeItem", (req, res) => {
+  Admin.findOne({ userId: req.body.userId }).then(admin => {
+    //If users ID does not matcht the admin's userId - kick them out!
+    if (!admin) {
+      return res.status(400).json({
+        message:
+          "You must be an admin to do that. Are you trying to hack me? Three strikes gets your IP reported. FYI"
+      });
+    }
+    //find item and delete it
+    Item.findByIdAndDelete(req.body.itemId)
+      .then(res.json({ message: "successfully deleted item" }))
+      .catch(err => console.log(err));
+  });
 });
 
 module.exports = router;
