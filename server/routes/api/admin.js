@@ -174,8 +174,16 @@ router.put("/editItem", (req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     }
+    //Find the item and update it
     Item.findOne({ _id: req.body.itemId })
       .then(item => {
+        //if no item found return with status error
+        if (!item) {
+          return res
+            .status(404)
+            .json({ message: "error", error: "Item not found" });
+        }
+        //else update item and return it
         item.name = req.body.name;
         item.desc = req.body.desc;
         item.img = req.body.img;
