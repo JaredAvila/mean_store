@@ -124,7 +124,6 @@ router.post(
   "/addNew",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log(req);
     //check if logged in user is an admin
     if (req.user.status != 301) {
       return res.status(400).json({

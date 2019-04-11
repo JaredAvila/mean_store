@@ -13,11 +13,6 @@ const User = require("../../models/User");
 const Item = require("../../models/Item");
 const Admin = require("../../models/Admin");
 
-//  @route            GET api/users/test
-//  @desc             Tests users route
-//  @access           Public
-router.get("/test", (req, res) => res.json({ message: "Users works!" }));
-
 //  @route            GET api/items/
 //  @desc             Returns items array
 //  @access           Public
@@ -122,7 +117,10 @@ router.post(
   (req, res) => {
     const loggedInUser = req.user;
     let { pastOrders, cart } = loggedInUser;
-    const { itemId, qty } = req.body;
+    const { itemId, qty, cartItemId } = req.body;
+    if (cart.length === 0) {
+      return res.status(400).json({ message: "error, nothing in cart" });
+    }
     Item.findOne({ _id: itemId }).then(item => {
       if (!item)
         return res.status(404).json({ message: "error, Item not found" });
@@ -138,7 +136,27 @@ router.post(
       });
       User.findOne({ _id: loggedInUser.id })
         .then(user => {
-          res.json({ message: "success", newSale, user, item });
+          let order = {
+            name: item.name,
+            desc: item.desc,
+            qty: newSale.qty,
+            totalPrice: newSale.tot,
+            purchaseDate: newSale.dateOfSale
+          };
+          pastOrders.push(order);
+          for (let i = 0; i < cart.length; i++) {
+            if (cart[i]._id == cartItemId) {
+              cart.splice(i, 1);
+            }
+          }
+          user.pastOrders = pastOrders;
+          user.cart = cart;
+          user
+            .save()
+            .then(user => res.json({ message: "success", user }))
+            .catch(err => {
+              if (err) return res.status(400).json({ message: "error", err });
+            });
         })
         .catch(err => {
           if (err) return res.status(400).json({ message: "error", err });
