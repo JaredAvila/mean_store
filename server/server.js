@@ -13,6 +13,9 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//serve index.html in angular
+app.use(express.static(__dirname + "../../client/dist/client"));
+
 //database config
 const db = require("./config/keys").mongoURI;
 
@@ -32,6 +35,11 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/items", items);
 app.use("/api/admin", admin);
+
+//server angular app if no other routes are hit
+app.all("*", (req, res, next) => {
+  res.sendFile(path.resolve("../client/dist/client/index.html"));
+});
 
 const port = 8000;
 
