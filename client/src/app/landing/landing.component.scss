@@ -1,0 +1,74 @@
+.orangeLink {
+  color: rgb(255, 183, 116);
+  transition: all 250ms ease;
+  font-size: 14pt;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.purpleLink {
+  color: rgb(215, 57, 255);
+  transition: all 250ms ease;
+  font-size: 14pt;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.blueLink {
+  color: rgb(146, 197, 255);
+  transition: all 250ms ease;
+  font-size: 14pt;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.yellowLink {
+  color: rgb(255, 253, 146);
+  transition: all 250ms ease;
+  font-size: 14pt;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.greenLink {
+  color: rgb(163, 233, 135);
+  transition: all 250ms ease;
+  font-size: 14pt;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.redLink {
+  color: rgb(255, 180, 180);
+  transition: all 250ms ease;
+  font-size: 14pt;
+
+  &:hover {
+    color: white;
+  }
+}
+
+li {
+  .darkImg-1 {
+    filter: brightness(80%);
+  }
+  .darkImg-2 {
+    filter: brightness(70%);
+  }
+  .darkImg-3 {
+    filter: brightness(60%);
+  }
+  .darkImg-4 {
+    filter: brightness(50%);
+  }
+}
