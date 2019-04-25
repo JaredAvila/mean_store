@@ -1,0 +1,44 @@
+@import "../../styles.scss";
+
+.category {
+  height: 15rem;
+  width: 15rem;
+  margin: 0 0.5rem;
+  position: relative;
+  cursor: pointer;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: $box-shadow-dark;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-1rem);
+    box-shadow: $box-shadow-light;
+  }
+
+  &:hover h4 {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &:hover img {
+    filter: blur(0.1rem) brightness(60%);
+  }
+
+  &__img {
+    height: 15rem;
+    transition: $transition;
+  }
+
+  &__name {
+    position: absolute;
+    @include absCenter;
+    font-size: 1.4rem;
+    color: $color-light;
+    opacity: 0;
+    transition: $transition;
+    transform: translate(-50%, -50%) scale(0.01);
+    cursor: inherit;
+  }
+}

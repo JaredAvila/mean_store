@@ -10,9 +10,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SaleComponent } from './sale/sale.component';
 import { ItemComponent } from './item/item.component';
 import { PopularItemsComponent } from './popular-items/popular-items.component';
+import { FeaturedCategoriesComponent } from './featured-categories/featured-categories.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent],
+  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

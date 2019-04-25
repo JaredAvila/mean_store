@@ -28,6 +28,8 @@ $color-dark: rgb(46, 46, 46);
 
 //-----------styles
 
+$box-shadow-dark: 0 1.3rem 4rem rgba($color-dark, 0.5);
+$box-shadow-light: 0 1.3rem 4rem rgba($color-light, 0.5);
 $transition: all 250ms ease-in-out;
 
 //mixins
@@ -38,6 +40,12 @@ $transition: all 250ms ease-in-out;
   display: table;
 }
 
+@mixin absCenter() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 //typeography
 
 .heading {
@@ -46,6 +54,7 @@ $transition: all 250ms ease-in-out;
     color: $color-dark;
     letter-spacing: 0.3rem;
     font-weight: 600;
+    text-transform: uppercase;
   }
 
   &--item {

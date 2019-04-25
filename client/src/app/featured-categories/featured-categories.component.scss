@@ -1,0 +1,19 @@
+@import "../../styles.scss";
+
+.featured-cat {
+  padding: 3rem 0;
+  width: 74%;
+  background-image: linear-gradient(to bottom, $color-blue, $color-light);
+  text-align: center;
+  margin: auto;
+
+  &__cats {
+    position: relative;
+    margin: auto;
+    @include clearFix;
+
+    & > * {
+      float: left;
+    }
+  }
+}
