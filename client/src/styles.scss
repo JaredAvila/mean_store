@@ -46,6 +46,17 @@ $transition: all 250ms ease-in-out;
   transform: translate(-50%, -50%);
 }
 
+// animations
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 //typeography
 
 .heading {
