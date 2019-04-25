@@ -12,9 +12,10 @@ import { ItemComponent } from './item/item.component';
 import { PopularItemsComponent } from './popular-items/popular-items.component';
 import { FeaturedCategoriesComponent } from './featured-categories/featured-categories.component';
 import { CategoryComponent } from './category/category.component';
+import { CategoryPageComponent } from './category-page/category-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent],
+  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent, CategoryPageComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

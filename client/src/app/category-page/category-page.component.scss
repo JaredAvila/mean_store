@@ -1,0 +1,42 @@
+@import "../../styles.scss";
+
+.category-page {
+  animation: fadeIn 700ms ease-in-out;
+  width: 75%;
+  height: 100vh;
+  margin: auto;
+
+  @include clearFix;
+
+  &__left {
+    float: left;
+    width: 22%;
+    overflow: hidden;
+    position: relative;
+
+    &--img {
+      height: 100vh;
+      filter: brightness(70%);
+    }
+
+    &--title {
+      position: absolute;
+      @include absCenter;
+      color: $color-light;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__right {
+    float: left;
+    width: 78%;
+    position: relative;
+    height: 100vh;
+    overflow-y: scroll;
+
+    & > * {
+      float: left;
+      margin: 0.5rem;
+    }
+  }
+}

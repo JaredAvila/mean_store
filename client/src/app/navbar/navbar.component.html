@@ -2,23 +2,40 @@
   <div class="navigation">
     <nav class="navigation__nav">
       <div class="navigation__left">
-        <img
-          src="../../logo.png"
-          alt="Mean Shopping Logo"
-          class="navigation__logo"
-        />
+        <a routerLink="/home"
+          ><img
+            src="../../logo.png"
+            alt="Mean Shopping Logo"
+            class="navigation__logo"
+        /></a>
         <button type="button" class="btn--dropdown">
           Categories
           <div class="navigation__dropdown--menu">
             <ul class="navigation__dropdown--list">
-              <li class="navigation__dropdown--item">Books/Magazines</li>
-              <li class="navigation__dropdown--item">Arts/Crafts</li>
-              <li class="navigation__dropdown--item">Technology/Gadgets</li>
-              <li class="navigation__dropdown--item">Food/Goods</li>
-              <li class="navigation__dropdown--item">Clothing/Apparel</li>
-              <li class="navigation__dropdown--item">Toys/Collectibles</li>
-              <li class="navigation__dropdown--item">Home/Kitchen</li>
-              <li class="navigation__dropdown--item">Outdoors/Gardening</li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Books/Magazines</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Arts/Crafts</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Technology/Gadgets</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Food/Goods</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Clothing/Apparel</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Toys/Collectibles</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Home/Kitchen</a>
+              </li>
+              <li class="navigation__dropdown--item">
+                <a routerLink="/category">Outdoors/Gardening</a>
+              </li>
             </ul>
           </div>
         </button>

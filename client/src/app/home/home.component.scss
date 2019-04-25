@@ -2,5 +2,10 @@
 
 .home {
   background-color: $color-light;
-  animation: fadeIn 1s ease-in-out;
+  animation: fadeIn 700ms ease-in-out;
+}
+
+.container {
+  width: 75%;
+  margin: auto;
 }
