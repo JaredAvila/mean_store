@@ -91,10 +91,13 @@ $transition: all 250ms ease-in-out;
   }
 
   &--search {
+    border: none;
+    outline: none;
     color: $color-grey;
     background-color: transparent;
     padding: 0 1rem;
     cursor: pointer;
+    transition: $transition;
 
     &:hover {
       color: $color-green-light;
@@ -106,11 +109,15 @@ $transition: all 250ms ease-in-out;
   }
 
   &--dropdown {
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
     color: $color-orange;
     background-color: transparent;
     cursor: pointer;
     border-radius: 4px;
     padding: 0.3rem 1.5rem;
+    transition: $transition;
 
     &:hover {
       color: $color-light;
