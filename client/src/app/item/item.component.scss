@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+
+.item {
+  background-image: linear-gradient(to bottom, $color-light, $color-blue-light);
+  height: 25rem;
+  width: 20rem;
+  margin: auto;
+  text-align: center;
+
+  &__img {
+    background-image: url(../../assets/img/items/toys/wolverine.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 70%;
+  }
+}

@@ -8,9 +8,11 @@ import { HomeComponent } from "./home/home.component";
 import { LandingComponent } from "./landing/landing.component";
 import { NavbarComponent } from './navbar/navbar.component';
 import { SaleComponent } from './sale/sale.component';
+import { ItemComponent } from './item/item.component';
+import { PopularItemsComponent } from './popular-items/popular-items.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent],
+  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

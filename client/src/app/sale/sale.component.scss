@@ -1,15 +1,22 @@
 @import "../../styles.scss";
 
 .sale {
-  width: fit-content;
-  margin-left: auto;
-  padding-right: 15rem;
+  width: 70%;
+  color: $color-dark;
+  padding: 2rem;
+  background-image: linear-gradient(
+    180deg,
+    rgb(3, 182, 3) 0%,
+    green 65%,
+    pink 65%
+  );
+  margin: auto;
 
   &__img {
     @include clearFix;
 
     &--img {
-      height: 30rem;
+      height: 35rem;
       float: left;
     }
 
@@ -17,17 +24,44 @@
       float: left;
       padding: 4rem;
 
+      h3 {
+        font-size: 4.5rem;
+        letter-spacing: 0.2rem;
+      }
+
       h4 {
         font-size: 4rem;
+        font-weight: 200;
+
+        span {
+          text-decoration: line-through;
+          color: $color-red;
+        }
       }
     }
   }
 
-  &__content--text {
-    width: 30rem;
+  &__content {
+    width: 100%;
+
+    h2 {
+      width: fit-content;
+    }
 
     &--paragraph {
-      font-size: 1.3rem;
+      font-size: 1rem;
+      column-count: 2;
+      column-gap: 4rem;
+      column-rule: 1px solid $color-light;
     }
+  }
+}
+
+.link {
+  color: $color-blue;
+  transition: $transition;
+
+  &:hover {
+    color: white;
   }
 }

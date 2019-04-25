@@ -6,8 +6,8 @@
     height: fit-content;
     padding: 1.3rem 0 0 0;
     font-size: 1.6rem;
-    box-shadow: 0 1.2rem 5rem rgba($color-light, 0.5);
-    // position: absolute;
+    box-shadow: 0 1.2rem 5rem rgba($color-dark, 0.5);
+    background-color: $color-blue-light;
 
     @include clearFix;
   }
@@ -73,7 +73,7 @@
     cursor: pointer;
 
     &:hover {
-      color: $color-blue-light;
+      color: $color-light;
     }
   }
 

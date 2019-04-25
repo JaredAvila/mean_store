@@ -1,0 +1,20 @@
+@import "../../styles.scss";
+
+.popular {
+  width: fit-content;
+  margin: auto;
+  padding: 4rem;
+  text-align: center;
+
+  &__items {
+    @include clearFix;
+
+    & > * {
+      float: left;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

@@ -15,11 +15,12 @@ body {
 //variables
 
 //-----------colors
-$color-blue-light: rgb(93, 182, 255);
+$color-blue-light: rgba(160, 212, 255, 0.856);
 $color-blue: rgb(45, 112, 255);
 $color-green-light: rgb(82, 218, 100);
 $color-grey: rgb(197, 197, 197);
 $color-orange: #ff8103;
+$color-red: rgb(197, 40, 40);
 
 $color-light: rgb(241, 241, 241);
 $color-dark: rgb(46, 46, 46);
@@ -39,14 +40,35 @@ $transition: all 250ms ease-in-out;
 //typeography
 
 .heading {
-  &--item {
-    font-size: 3rem;
+  &--main {
+    font-size: 2.3rem;
+    color: $color-dark;
+    letter-spacing: 0.3rem;
+    font-weight: 600;
+  }
+
+  &--item{
+    font-size: 1.6rem;
+    font-weight: 500;
     color: $color-dark;
     transition: $transition;
     cursor: default;
 
     &:hover {
-      transform: scale(1.2) rotate(2deg);
+      transform: scale(1.1);
+      color: $color-orange;
+    }
+  }
+
+  &--sale-item {
+    font-size: 3rem;
+    font-weight: 500;
+    color: $color-dark;
+    transition: $transition;
+    cursor: default;
+
+    &:hover {
+      transform: scale(1.1);
       color: $color-orange;
     }
   }
@@ -61,7 +83,7 @@ $transition: all 250ms ease-in-out;
   font-size: 1.4rem;
   transition: $transition;
   padding: 1.5rem 2rem;
-  border-radius: 3px;
+  border-radius: 6px;
   box-shadow: 0 0.3rem 1rem rgba($color-dark, 0.7);
   transform: translateY(0.2rem);
 
@@ -124,4 +146,16 @@ $transition: all 250ms ease-in-out;
       background-color: $color-orange;
     }
   }
+}
+
+// utilities
+
+.margin-bottom-small {
+  margin-bottom: 4rem;
+}
+.margin-bottom-medium {
+  margin-bottom: 6rem;
+}
+.margin-bottom-big {
+  margin-bottom: 8rem;
 }
