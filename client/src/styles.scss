@@ -16,8 +16,9 @@ body {
 
 //-----------colors
 $color-blue-light: rgba(160, 212, 255, 0.856);
-$color-blue: rgb(45, 112, 255);
+$color-blue: rgb(71, 129, 255);
 $color-green-light: rgb(82, 218, 100);
+$color-green: rgb(0, 207, 45);
 $color-grey: rgb(197, 197, 197);
 $color-orange: #ff8103;
 $color-red: rgb(197, 40, 40);
@@ -47,7 +48,7 @@ $transition: all 250ms ease-in-out;
     font-weight: 600;
   }
 
-  &--item{
+  &--item {
     font-size: 1.6rem;
     font-weight: 500;
     color: $color-dark;
@@ -80,9 +81,9 @@ $transition: all 250ms ease-in-out;
   border: none;
   outline: none;
   background-color: $color-light;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   transition: $transition;
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.5rem;
   border-radius: 6px;
   box-shadow: 0 0.3rem 1rem rgba($color-dark, 0.7);
   transform: translateY(0.2rem);
@@ -99,6 +100,11 @@ $transition: all 250ms ease-in-out;
     transform: translateY(0.2rem);
   }
 
+  &--small {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
   &--large {
     padding: 2rem 2.5rem;
     font-size: 1.6rem;
@@ -106,6 +112,14 @@ $transition: all 250ms ease-in-out;
 
   &--blue {
     background-color: $color-blue;
+
+    &:hover {
+      filter: brightness(130%);
+    }
+  }
+
+  &--green {
+    background-color: $color-green;
 
     &:hover {
       filter: brightness(130%);

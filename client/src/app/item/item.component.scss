@@ -30,10 +30,10 @@
   &__side--back {
     transform: rotateY(180deg);
     background-image: linear-gradient(
-      15deg,
+      9deg,
       $color-orange 0%,
-      $color-orange 75%,
-      $color-light 75%
+      $color-orange 80%,
+      $color-light 85%
     );
     border: 1px solid $color-dark;
     border-radius: 2px;
@@ -50,6 +50,17 @@
   &__price {
     font-size: 1.4rem;
     color: #fff;
+  }
+
+  &__desc {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  &__buttons > * {
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
   }
 
   &:hover &__side--front {
