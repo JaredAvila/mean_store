@@ -147,6 +147,14 @@ $transition: all 250ms ease-in-out;
     }
   }
 
+  &--orange {
+    background-color: $color-orange;
+
+    &:hover {
+      filter: brightness(130%);
+    }
+  }
+
   &--search {
     border: none;
     outline: none;
@@ -181,6 +189,18 @@ $transition: all 250ms ease-in-out;
       background-color: $color-orange;
     }
   }
+}
+
+// add to cart modal
+
+.atc-modal {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-dark, 0.7);
+  visibility: hidden;
 }
 
 // utilities

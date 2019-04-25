@@ -15,9 +15,10 @@ import { CategoryComponent } from './category/category.component';
 import { CategoryPageComponent } from './category-page/category-page.component';
 import { ItemPageComponent } from './item-page/item-page.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent, CategoryPageComponent, ItemPageComponent, SearchResultsComponent],
+  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent, CategoryPageComponent, ItemPageComponent, SearchResultsComponent, AddToCartComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]

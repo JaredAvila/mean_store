@@ -1,5 +1,9 @@
 @import "../../styles.scss";
 
+.item-container {
+  position: relative;
+}
+
 .item-page {
   animation: fadeIn 700ms ease-in;
   width: 75%;

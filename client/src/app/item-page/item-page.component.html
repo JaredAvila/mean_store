@@ -1,28 +1,33 @@
-<app-navbar></app-navbar>
-<div class="item-page">
-  <div class="item">
-    <img
-      src="../../assets/img/items/books/harrypotter.png"
-      alt="harry potter book set"
-      class="item__img"
-    />
-    <div class="item__content">
-      <h4 class="item__content--title">Harry Potter 7-book set</h4>
-      <p class="item__content--price">$49.95</p>
-      <form action="#" class="item__content--form">
-        <input type="number" name="qty" class="qty" />
-        <label for="qty">Qty</label>
-        <button type="button" class="btn btn--blue btn--small">
-          Add to cart
-        </button>
-      </form>
-      <p class="item__content--desc">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
-        incidunt, dignissimos sed ducimus molestias, ullam odit facilis tempora
-        omnis, beatae dolores minima aspernatur magni debitis. incidunt,
-        dignissimos sed ducimus molestias, ullam odit facilis tempora omnis,
-        beatae dolores minima aspernatur magni debitis.
-      </p>
+<div class="item-container">
+  <app-navbar></app-navbar>
+  <div class="item-page">
+    <div class="item">
+      <img
+        src="../../assets/img/items/books/harrypotter.png"
+        alt="harry potter book set"
+        class="item__img"
+      />
+      <div class="item__content">
+        <h4 class="item__content--title">Harry Potter 7-book set</h4>
+        <p class="item__content--price">$49.95</p>
+        <form action="#" class="item__content--form">
+          <input type="number" value="1" name="qty" class="qty" />
+          <label for="qty">Qty</label>
+          <button type="button" class="btn btn--blue btn--small">
+            Add to cart
+          </button>
+        </form>
+        <p class="item__content--desc">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
+          incidunt, dignissimos sed ducimus molestias, ullam odit facilis
+          tempora omnis, beatae dolores minima aspernatur magni debitis.
+          incidunt, dignissimos sed ducimus molestias, ullam odit facilis
+          tempora omnis, beatae dolores minima aspernatur magni debitis.
+        </p>
+      </div>
     </div>
+  </div>
+  <div class="atc-modal">
+    <app-add-to-cart></app-add-to-cart>
   </div>
 </div>

@@ -1,0 +1,58 @@
+@import "../../styles.scss";
+
+.atc {
+  position: absolute;
+  color: $color-dark;
+  border-radius: 3px;
+  box-shadow: $box-shadow-dark;
+  @include absCenter;
+
+  background-color: $color-light;
+  padding: 3rem;
+
+  &__content {
+    @include clearFix;
+
+    & > * {
+      float: left;
+      padding: 1rem;
+    }
+
+    &--img {
+      width: 4.5rem;
+    }
+
+    &__details {
+      &--title {
+        font-size: 1.4rem;
+      }
+
+      &--msg {
+        color: $color-green;
+        padding-top: 1rem;
+        font-weight: 500;
+      }
+
+      &--qty {
+        padding-top: 1rem;
+      }
+    }
+  }
+
+  &__buttons {
+    button {
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
