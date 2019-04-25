@@ -193,6 +193,10 @@ $transition: all 250ms ease-in-out;
 
 // add to cart modal
 
+#atc-modal {
+  visibility: hidden;
+}
+
 .atc-modal {
   height: 100vh;
   width: 100%;
@@ -200,7 +204,6 @@ $transition: all 250ms ease-in-out;
   top: 0;
   left: 0;
   background-color: rgba($color-dark, 0.7);
-  visibility: hidden;
 }
 
 // utilities

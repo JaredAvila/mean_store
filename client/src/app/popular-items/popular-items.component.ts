@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-popular-items',
-  templateUrl: './popular-items.component.html',
-  styleUrls: ['./popular-items.component.scss']
+  selector: "app-popular-items",
+  templateUrl: "./popular-items.component.html",
+  styleUrls: ["./popular-items.component.scss"]
 })
 export class PopularItemsComponent implements OnInit {
+  @Output() addToCart = new EventEmitter();
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  onAddToCart(data) {
+    this.addToCart.emit(data);
   }
 
+  ngOnInit() {}
 }

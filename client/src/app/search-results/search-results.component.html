@@ -3,7 +3,7 @@
   <div class="search-container">
     <h4 class="title">Results for: <span>Wolverine</span></h4>
     <div class="results">
-      <app-item></app-item>
+      <app-item (addToCart)="onAddToCart($event)"></app-item>
       <app-item></app-item>
       <app-item></app-item>
       <app-item></app-item>
@@ -22,7 +22,7 @@
       <app-item></app-item>
     </div>
   </div>
-  <div class="atc-modal">
-    <app-add-to-cart></app-add-to-cart>
+  <div class="atc-modal" id="atc-modal">
+    <app-add-to-cart (closeModal)="onCloseModal($event)"></app-add-to-cart>
   </div>
 </div>

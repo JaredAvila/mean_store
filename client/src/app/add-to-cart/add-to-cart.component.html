@@ -14,7 +14,9 @@
   <div class="atc__buttons">
     <button class="btn btn--small btn--green">Check-out</button>
     <button class="btn btn--small btn--blue">View Cart</button>
-    <button class="btn btn--small btn--orange">Continue Shopping</button>
+    <button class="btn btn--small btn--orange" (click)="onCloseModal()">
+      Continue Shopping
+    </button>
   </div>
-  <div class="atc__close-btn">X</div>
+  <div class="atc__close-btn" (click)="onCloseModal()">X</div>
 </div>

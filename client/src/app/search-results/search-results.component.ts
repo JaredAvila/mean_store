@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.scss']
+  selector: "app-search-results",
+  templateUrl: "./search-results.component.html",
+  styleUrls: ["./search-results.component.scss"]
 })
 export class SearchResultsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  onAddToCart(data) {
+    console.log("please work ", data);
+    document.getElementById("atc-modal").style.visibility = "visible";
   }
 
+  onCloseModal() {
+    document.getElementById("atc-modal").style.visibility = "hidden";
+  }
+
+  ngOnInit() {}
 }

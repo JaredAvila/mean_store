@@ -5,9 +5,9 @@
     <div class="margin-bottom-big">
       <app-featured-categories></app-featured-categories>
     </div>
-    <app-popular-items></app-popular-items>
+    <app-popular-items (addToCart)="onAddToCart($event)"></app-popular-items>
   </div>
-  <div class="atc-modal">
-    <app-add-to-cart></app-add-to-cart>
+  <div class="atc-modal" id="atc-modal">
+    <app-add-to-cart (closeModal)="onCloseModal($event)"></app-add-to-cart>
   </div>
 </div>

@@ -10,16 +10,7 @@
       <h2 class="category-page__left--title">Outdoor/Gardening</h2>
     </div>
     <div class="category-page__right">
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
-      <app-item></app-item>
+      <app-item (addToCart)="onAddToCart($event)"></app-item>
       <app-item></app-item>
       <app-item></app-item>
       <app-item></app-item>
@@ -39,7 +30,7 @@
       <app-item></app-item>
     </div>
   </div>
-  <div class="atc-modal">
-    <app-add-to-cart></app-add-to-cart>
+  <div class="atc-modal" id="atc-modal">
+    <app-add-to-cart (closeModal)="onCloseModal($event)"></app-add-to-cart>
   </div>
 </div>
