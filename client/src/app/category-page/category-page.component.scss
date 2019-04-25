@@ -3,7 +3,7 @@
 .category-page {
   animation: fadeIn 700ms ease-in-out;
   width: 75%;
-  height: 100vh;
+  height: 91vh;
   margin: auto;
 
   @include clearFix;
@@ -15,7 +15,7 @@
     position: relative;
 
     &--img {
-      height: 100vh;
+      height: 91vh;
       filter: brightness(70%);
     }
 
@@ -31,7 +31,7 @@
     float: left;
     width: 78%;
     position: relative;
-    height: 100vh;
+    height: 91vh;
     overflow-y: scroll;
 
     & > * {
