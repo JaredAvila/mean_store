@@ -1,6 +1,120 @@
-/* You can add global styles to this file, and also import other style files */
-@import "../src/assets/materialize/css/materialize.min.css";
+//reset
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
 
-.homeBtn {
-  margin-top: 180px;
+body {
+  font-size: 62.5%; //1rem = 10px ---> 10/16 = 62.5%
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+//variables
+
+//-----------colors
+$color-blue-light: rgb(93, 182, 255);
+$color-blue: rgb(45, 112, 255);
+$color-green-light: rgb(82, 218, 100);
+$color-grey: rgb(197, 197, 197);
+$color-orange: #ff8103;
+
+$color-light: rgb(241, 241, 241);
+$color-dark: rgb(46, 46, 46);
+
+//-----------styles
+
+$transition: all 250ms ease-in-out;
+
+//mixins
+
+@mixin clearFix() {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+//typeography
+
+.heading {
+  &--item {
+    font-size: 3rem;
+    color: $color-dark;
+    transition: $transition;
+    cursor: default;
+
+    &:hover {
+      transform: scale(1.2) rotate(2deg);
+      color: $color-orange;
+    }
+  }
+}
+
+//components
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: $color-light;
+  font-size: 1.4rem;
+  transition: $transition;
+  padding: 1.5rem 2rem;
+  border-radius: 3px;
+  box-shadow: 0 0.3rem 1rem rgba($color-dark, 0.7);
+  transform: translateY(0.2rem);
+
+  &:hover {
+    filter: brightness(120%);
+    box-shadow: 0 1.3rem 2rem rgba($color-dark, 0.5);
+    transform: translateY(0);
+  }
+
+  &:active {
+    filter: brightness(100%);
+    box-shadow: 0 0.3rem 1rem rgba($color-dark, 0.7);
+    transform: translateY(0.2rem);
+  }
+
+  &--large {
+    padding: 2rem 2.5rem;
+    font-size: 1.6rem;
+  }
+
+  &--blue {
+    background-color: $color-blue;
+
+    &:hover {
+      filter: brightness(130%);
+    }
+  }
+
+  &--search {
+    color: $color-grey;
+    background-color: transparent;
+    padding: 0 1rem;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-green-light;
+    }
+
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  &--dropdown {
+    color: $color-orange;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0.3rem 1.5rem;
+
+    &:hover {
+      color: $color-light;
+      background-color: $color-orange;
+    }
+  }
 }

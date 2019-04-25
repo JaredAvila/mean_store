@@ -1,0 +1,33 @@
+@import "../../styles.scss";
+
+.sale {
+  width: fit-content;
+  margin-left: auto;
+  padding-right: 15rem;
+
+  &__img {
+    @include clearFix;
+
+    &--img {
+      height: 30rem;
+      float: left;
+    }
+
+    &--price {
+      float: left;
+      padding: 4rem;
+
+      h4 {
+        font-size: 4rem;
+      }
+    }
+  }
+
+  &__content--text {
+    width: 30rem;
+
+    &--paragraph {
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -1,28 +1,48 @@
-<nav>
-  <div class="left">
-    <div class="logo">
-      <img src="../../logo.png" alt="" />
-    </div>
-    <div class="search">
-      <input type="text" placeholder="Search" />
-      <button type="button">
-        <i class="material-icons">
-          search
+<section class="section-navbar">
+  <div class="navigation">
+    <nav class="navigation__nav">
+      <div class="navigation__left">
+        <img
+          src="../../logo.png"
+          alt="Mean Shopping Logo"
+          class="navigation__logo"
+        />
+        <button type="button" class="btn btn--dropdown">
+          Categories
+          <div class="navigation__dropdown--menu">
+            <ul class="navigation__dropdown--list">
+              <li class="navigation__dropdown--item">Books/Magazines</li>
+              <li class="navigation__dropdown--item">Arts/Crafts</li>
+              <li class="navigation__dropdown--item">Technology/Gadgets</li>
+              <li class="navigation__dropdown--item">Food/Goods</li>
+              <li class="navigation__dropdown--item">Clothing/Apparel</li>
+              <li class="navigation__dropdown--item">Toys/Collectibles</li>
+              <li class="navigation__dropdown--item">Home/Kitchen</li>
+              <li class="navigation__dropdown--item">Outdoors/Gardening</li>
+            </ul>
+          </div>
+        </button>
+      </div>
+      <div class="navigation__right">
+        <form action="#" class="navigation__search">
+          <input
+            type="text"
+            placeholder="Search"
+            class="navigation__search--bar"
+          />
+          <button type="button" class="btn btn--search">
+            <i class="material-icons">
+              search
+            </i>
+          </button>
+        </form>
+        <i class="material-icons navigation__icon--1">
+          account_circle
         </i>
-      </button>
-    </div>
+        <i class="material-icons navigation__icon--2">
+          shopping_cart
+        </i>
+      </div>
+    </nav>
   </div>
-  <div class="right">
-    <i class="material-icons">
-      account_circle
-    </i>
-    <i class="material-icons">
-      shopping_cart
-    </i>
-  </div>
-  <div class="mobileMenu">
-    <i class="material-icons">
-      menu
-    </i>
-  </div>
-</nav>
+</section>
