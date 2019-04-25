@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { LandingComponent } from "./landing/landing.component";
 import { HomeComponent } from "./home/home.component";
 import { CategoryPageComponent } from "./category-page/category-page.component";
+import { ItemPageComponent } from "./item-page/item-page.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "category",
     component: CategoryPageComponent
+  },
+  {
+    path: "item",
+    component: ItemPageComponent
   }
 ];
 

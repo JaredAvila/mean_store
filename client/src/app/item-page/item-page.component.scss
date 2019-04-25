@@ -1,0 +1,60 @@
+@import "../../styles.scss";
+
+.item-page {
+  animation: fadeIn 700ms ease-in;
+  width: 75%;
+  margin: auto;
+  color: $color-dark;
+
+  .item {
+    position: relative;
+    @include clearFix;
+
+    & > * {
+      float: left;
+    }
+
+    &__img {
+      height: 30rem;
+    }
+
+    &__content {
+      width: 40%;
+      padding: 4rem;
+
+      &--title {
+        font-size: 2.5rem;
+      }
+
+      &--price {
+        font-size: 2rem;
+        font-weight: 200;
+      }
+
+      &--desc {
+        font-size: 1.2rem;
+      }
+
+      &--form {
+        padding: 1.3rem;
+
+        & > * {
+          margin: 0 0.5rem;
+        }
+
+        .qty {
+          width: 2.5rem;
+          padding: 0.3rem;
+          font-size: 1.1rem;
+          border: 1px solid $color-dark;
+          border-radius: 0.5rem;
+          outline: none;
+        }
+
+        label {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
