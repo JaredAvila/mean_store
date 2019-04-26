@@ -9,11 +9,12 @@ export class SearchResultsComponent implements OnInit {
   constructor() {}
 
   onAddToCart(data) {
-    console.log("please work ", data);
+    document.getElementById("atc-modal").style.opacity = "1";
     document.getElementById("atc-modal").style.visibility = "visible";
   }
 
   onCloseModal() {
+    document.getElementById("atc-modal").style.opacity = "0";
     document.getElementById("atc-modal").style.visibility = "hidden";
   }
 

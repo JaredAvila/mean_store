@@ -11,13 +11,14 @@
       quasi laudantium placeat libero corporis et eveniet fugiat. Deserunt,
       iusto?
     </p>
-    <div class="item__buttons">
-      <a routerLink="/item"
-        ><button class="btn btn--small btn--blue">View Item</button></a
-      >
-      <button class="btn btn--small btn--green" (click)="onAddToCart()">
-        Add to cart
-      </button>
-    </div>
+    <a routerLink="/item" class="link link--small item__item-link">
+      View Item
+      <i class="material-icons">
+        arrow_forward
+      </i>
+    </a>
+    <i (click)="onAddToCart()" class="material-icons item__cart-link">
+      add_shopping_cart
+    </i>
   </div>
 </div>

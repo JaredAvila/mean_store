@@ -9,10 +9,12 @@ export class CategoryPageComponent implements OnInit {
   constructor() {}
 
   onAddToCart(data) {
-    console.log(data);
+    document.getElementById("atc-modal").style.opacity = "1";
     document.getElementById("atc-modal").style.visibility = "visible";
   }
+
   onCloseModal() {
+    document.getElementById("atc-modal").style.opacity = "0";
     document.getElementById("atc-modal").style.visibility = "hidden";
   }
 

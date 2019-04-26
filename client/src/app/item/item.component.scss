@@ -57,11 +57,20 @@
     padding: 1rem;
   }
 
-  &__buttons > * {
-    &:not(:last-child) {
-      margin-right: 0.4rem;
-    }
+  &__cart-link {
+    color: $color-green-light;
+    border: 3px solid $color-green-light;
+    padding: 0.2rem;
+    border-radius: 50%;
+    font-size: 2.3rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
   }
+
+  // &__item-link {
+  //   margin-right: 1rem;
+  // }
 
   &:hover &__side--front {
     transform: rotateY(-180deg);

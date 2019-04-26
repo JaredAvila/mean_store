@@ -8,11 +8,13 @@ import { Component, OnInit } from "@angular/core";
 export class ItemPageComponent implements OnInit {
   constructor() {}
 
-  onAddToCart() {
+  onAddToCart(data) {
+    document.getElementById("atc-modal").style.opacity = "1";
     document.getElementById("atc-modal").style.visibility = "visible";
   }
 
   onCloseModal() {
+    document.getElementById("atc-modal").style.opacity = "0";
     document.getElementById("atc-modal").style.visibility = "hidden";
   }
 

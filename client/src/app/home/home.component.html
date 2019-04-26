@@ -1,7 +1,7 @@
 <div class="home">
   <app-navbar></app-navbar>
   <div class="container">
-    <app-sale></app-sale>
+    <app-sale (addToCart)="onAddToCart($event)"></app-sale>
     <div class="margin-bottom-big">
       <app-featured-categories></app-featured-categories>
     </div>
