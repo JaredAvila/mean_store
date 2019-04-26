@@ -37,11 +37,22 @@
             </button></a
           >
         </form>
-        <a routerLink="/register"
-          ><i class="material-icons navigation__icon--1">
+        <button class="navigation__icon--1">
+          <i class="material-icons">
             account_circle
-          </i></a
-        >
+          </i>
+          <div class="navigation__login-dropdown--menu">
+            <ul class="navigation__login-dropdown--list">
+              <li class="navigation__login-dropdown--item">
+                <a routerLink="/login">Login</a>
+              </li>
+              <li class="navigation__login-dropdown--item">
+                <a routerLink="/register">Create new account</a>
+              </li>
+            </ul>
+          </div>
+        </button>
+
         <a routerLink="/cart">
           <i class="material-icons navigation__icon--2">
             shopping_cart
