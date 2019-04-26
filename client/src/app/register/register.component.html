@@ -1,0 +1,36 @@
+<div class="login">
+  <a routerLink="/home"
+    ><img src="../../logo.png" alt="" class="login__img"
+  /></a>
+  <h2 class="login__text">Create your Mean Shopping account</h2>
+  <p>* required field</p>
+  <form action="#" class="login__form">
+    <label class="login__form--label" for="first_name">First name*</label>
+    <input class="login__form--input" type="text" name="first_name" required />
+    <label class="login__form--label" for="last_name">Last name*</label>
+    <input class="login__form--input" required type="text" name="last_name" />
+    <label class="login__form--label" for="email">Email address*</label>
+    <input class="login__form--input" type="email" name="email" required />
+    <label class="login__form--label" for="password">Password*</label>
+    <input
+      class="login__form--input"
+      type="password"
+      name="password"
+      required
+    />
+    <label class="login__form--label" for="password2">Confirm password</label>
+    <input class="login__form--input" type="password" name="password2" />
+    <button type="button" class="login__form--button login__form--button-solid">
+      Create Account
+    </button>
+    <p>Already have an account?</p>
+    <a routerLink="/login"
+      ><button
+        type="button"
+        class="login__form--button login__form--button-clear"
+      >
+        Sign In
+      </button></a
+    >
+  </form>
+</div>

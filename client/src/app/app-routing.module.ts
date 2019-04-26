@@ -6,6 +6,8 @@ import { CategoryPageComponent } from "./category-page/category-page.component";
 import { ItemPageComponent } from "./item-page/item-page.component";
 import { SearchResultsComponent } from "./search-results/search-results.component";
 import { CartComponent } from "./cart/cart.component";
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: "cart",
     component: CartComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
+  {
+    path: "register",
+    component: RegisterComponent
   }
 ];
 

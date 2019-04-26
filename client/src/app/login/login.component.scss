@@ -1,0 +1,85 @@
+@import "../../styles.scss";
+
+.login {
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  padding: 3rem;
+
+  &__img {
+    height: 7rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    font-weight: 200;
+    width: 60%;
+    margin: auto;
+    margin-bottom: 3rem;
+  }
+
+  &__form {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+
+    > * {
+      display: block;
+    }
+
+    &--label {
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+      text-align: left;
+    }
+
+    &--input {
+      padding: 1rem 0.5rem;
+      border-radius: 2px;
+      border: 1px solid $color-dark;
+      width: 94%;
+      margin-bottom: 1rem;
+    }
+
+    &--button {
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      padding: 0.8rem 1.5rem;
+      outline: none;
+      border-radius: 2.5rem;
+      font-size: 1.2rem;
+      margin: auto;
+      margin-bottom: 1rem;
+      transition: $transition;
+
+      &:active {
+        filter: brightness(0.9);
+      }
+
+      &-solid {
+        border: 2px solid $color-blue;
+        color: white;
+        background-color: $color-blue;
+
+        &:hover {
+          background-color: white;
+          color: $color-blue;
+        }
+      }
+
+      &-clear {
+        border: 2px solid $color-blue;
+        color: $color-blue;
+        background-color: white;
+
+        &:hover {
+          background-color: $color-blue;
+          color: white;
+        }
+      }
+    }
+  }
+}
