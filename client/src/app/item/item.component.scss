@@ -1,8 +1,8 @@
 @import "../../styles.scss";
 
 .item {
-  height: 25rem;
-  width: 20rem;
+  height: 20rem;
+  width: 15rem;
   margin: auto;
   text-align: center;
   perspective: 150rem;
@@ -10,12 +10,13 @@
   position: relative;
 
   &__side {
-    height: 25rem;
-    width: 20rem;
+    height: 18rem;
+    width: 15rem;
     position: absolute;
     top: 0;
     left: 0;
     backface-visibility: hidden;
+    padding: 1rem 0;
     transition: $transition;
   }
 
@@ -53,24 +54,31 @@
   }
 
   &__desc {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     padding: 1rem;
   }
 
   &__cart-link {
     color: $color-green-light;
     border: 3px solid $color-green-light;
-    padding: 0.2rem;
+    padding: 0.1rem;
     border-radius: 50%;
-    font-size: 2.3rem;
+    font-size: 1.7rem;
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
-  }
+    transition: $transition;
+    cursor: pointer;
 
-  // &__item-link {
-  //   margin-right: 1rem;
-  // }
+    &:hover {
+      transform: translateY(-0.2rem);
+      box-shadow: 0 0.1rem 0.4rem rgb(179, 179, 179);
+    }
+    &:active {
+      transform: translateY(-0.05rem);
+      box-shadow: 0 0.1rem 0.4rem rgb(214, 214, 214);
+    }
+  }
 
   &:hover &__side--front {
     transform: rotateY(-180deg);

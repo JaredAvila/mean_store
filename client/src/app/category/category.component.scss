@@ -2,20 +2,18 @@
 
 .category {
   outline: none;
-  height: 15rem;
-  width: 15rem;
-  margin: 0 0.5rem;
+  height: 12rem;
+  width: 12rem;
+  margin: 0 1rem 1rem 0;
   position: relative;
   cursor: pointer;
   backface-visibility: hidden;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: $box-shadow-dark;
   transition: $transition;
 
   &:hover {
     transform: translateY(-1rem);
-    box-shadow: $box-shadow-light;
   }
 
   &:hover h4 {
@@ -28,14 +26,14 @@
   }
 
   &__img {
-    height: 15rem;
+    height: 12rem;
     transition: $transition;
   }
 
   &__name {
     position: absolute;
     @include absCenter;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: $color-light;
     opacity: 0;
     transition: $transition;

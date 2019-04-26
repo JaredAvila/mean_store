@@ -1,11 +1,13 @@
 <div class="home">
   <app-navbar></app-navbar>
   <div class="container">
-    <app-sale (addToCart)="onAddToCart($event)"></app-sale>
     <div class="margin-bottom-big">
-      <app-featured-categories></app-featured-categories>
+      <app-sale (addToCart)="onAddToCart($event)"></app-sale>
     </div>
-    <app-popular-items (addToCart)="onAddToCart($event)"></app-popular-items>
+    <div class="margin-bottom-big">
+      <app-popular-items (addToCart)="onAddToCart($event)"></app-popular-items>
+    </div>
+    <app-featured-categories></app-featured-categories>
   </div>
   <div class="atc-modal" id="atc-modal">
     <app-add-to-cart (closeModal)="onCloseModal($event)"></app-add-to-cart>

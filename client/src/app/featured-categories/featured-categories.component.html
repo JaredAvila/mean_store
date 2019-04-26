@@ -1,9 +1,19 @@
 <div class="featured-cat">
-  <h2 class="heading--main margin-bottom-medium">Our Featured Categories</h2>
-  <div class="featured-cat__cats">
-    <app-category></app-category>
-    <app-category></app-category>
-    <app-category></app-category>
-    <app-category></app-category>
+  <div class="featured-cat__left">
+    <h4 class="featured-cat__left--title">Browse by Category</h4>
+  </div>
+  <div class="featured-cat__right">
+    <div class="featured-cat__right--cats" *ngFor="let category of categories">
+      <!-- <app-category [category]="categories['books']"></app-category>
+      <app-category [category]="categories['arts']"></app-category>
+      <app-category [category]="categories['tech']"></app-category>
+      <app-category [category]="categories['food']"></app-category>
+      <app-category [category]="categories['clothes']"></app-category>
+      <app-category [category]="categories['toys']"></app-category>
+      <app-category [category]="categories['garden']"></app-category>
+      <app-category [category]="categories['games']"></app-category>
+      <app-category [category]="categories['home']"></app-category> -->
+      <app-category [category]="category"></app-category>
+    </div>
   </div>
 </div>

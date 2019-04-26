@@ -3,7 +3,6 @@
 .popular {
   width: fit-content;
   margin: auto;
-  padding: 4rem;
   text-align: center;
 
   &__items {
@@ -13,7 +12,7 @@
       float: left;
 
       &:not(:last-child) {
-        margin-right: 0.5rem;
+        margin-right: 3.5rem;
       }
     }
   }
