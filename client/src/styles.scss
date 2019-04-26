@@ -48,6 +48,19 @@ $transition: all 250ms ease-in-out;
 
 // animations
 
+@keyframes bounce-right {
+  0% {
+    right: -1.7rem;
+  }
+
+  70% {
+    right: -3.5rem;
+  }
+  100% {
+    right: -2.5rem;
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -107,6 +120,11 @@ $transition: all 250ms ease-in-out;
   &:hover {
     color: white;
     border-bottom: 2px solid white;
+
+    i {
+      animation: bounce-right 500ms ease-out;
+      right: -2.5rem;
+    }
   }
 
   i {
@@ -114,6 +132,7 @@ $transition: all 250ms ease-in-out;
     position: absolute;
     top: 0.2rem;
     right: -1.7rem;
+    transition: right 250ms ease-in-out;
   }
 
   &--small {
@@ -122,6 +141,18 @@ $transition: all 250ms ease-in-out;
     border-bottom: 1px solid $color-dark;
     i {
       font-size: inherit;
+    }
+  }
+
+  &--atc {
+    position: absolute;
+    top: 12.5rem;
+    right: 4rem;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-orange;
+      border-bottom: 1px solid $color-orange;
     }
   }
 }

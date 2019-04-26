@@ -2,6 +2,7 @@
 
 .atc {
   position: absolute;
+  width: 50%;
   color: $color-dark;
   border-radius: 3px;
   box-shadow: $box-shadow-dark;
@@ -45,14 +46,5 @@
         margin-right: 0.5rem;
       }
     }
-  }
-
-  &__close-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
   }
 }

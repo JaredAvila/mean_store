@@ -11,30 +11,12 @@
         <button type="button" class="btn--dropdown">
           Categories
           <div class="navigation__dropdown--menu">
-            <ul class="navigation__dropdown--list">
+            <ul
+              class="navigation__dropdown--list"
+              *ngFor="let category of categories"
+            >
               <li class="navigation__dropdown--item">
-                <a routerLink="/category">Books/Magazines</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Arts/Crafts</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Technology/Gadgets</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Food/Goods</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Clothing/Apparel</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Toys/Collectibles</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Home/Kitchen</a>
-              </li>
-              <li class="navigation__dropdown--item">
-                <a routerLink="/category">Outdoors/Gardening</a>
+                <a routerLink="/category">{{ category.title }}</a>
               </li>
             </ul>
           </div>
@@ -47,18 +29,22 @@
             placeholder="Search"
             class="navigation__search--bar"
           />
-          <a routerLink="/results"><button type="button" class="btn--search">
-            <i class="material-icons">
-              search
-            </i>
-          </button></a>
+          <a routerLink="/results"
+            ><button type="button" class="btn--search">
+              <i class="material-icons">
+                search
+              </i>
+            </button></a
+          >
         </form>
         <i class="material-icons navigation__icon--1">
           account_circle
         </i>
-        <i class="material-icons navigation__icon--2">
-          shopping_cart
-        </i>
+        <a routerLink="/cart">
+          <i class="material-icons navigation__icon--2">
+            shopping_cart
+          </i>
+        </a>
       </div>
     </nav>
   </div>

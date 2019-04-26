@@ -13,10 +13,14 @@
   </div>
   <div class="atc__buttons">
     <button class="btn btn--small btn--green">Check-out</button>
-    <button class="btn btn--small btn--blue">View Cart</button>
-    <button class="btn btn--small btn--orange" (click)="onCloseModal()">
+    <a routerLink="/cart"
+      ><button class="btn btn--small btn--blue">View Cart</button></a
+    >
+    <p class="link link--atc link--small" (click)="onCloseModal()">
       Continue Shopping
-    </button>
+      <i class="material-icons">
+        arrow_forward
+      </i>
+    </p>
   </div>
-  <div class="atc__close-btn" (click)="onCloseModal()">X</div>
 </div>

@@ -1,0 +1,44 @@
+@import "../../styles.scss";
+
+.cart {
+  padding: 0 2rem;
+  width: 75%;
+  margin: auto;
+  height: 100vh;
+  @include clearFix;
+
+  &__left {
+    float: left;
+    border-left: 1px solid $color-dark;
+    width: 65%;
+    padding: 3rem 1.5rem;
+    border-radius: 2px;
+    height: 100vh;
+  }
+
+  &__right {
+    float: right;
+    width: 30%;
+    position: fixed;
+    top: 7rem;
+    right: 2rem;
+    border-left: 1px solid $color-dark;
+    padding-left: 2rem;
+
+    &--sub-total,
+    &--tax,
+    &--total {
+      @include clearFix;
+      width: 100%;
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+  }
+}
+
+.price--left {
+  float: left;
+}
+.price--right {
+  float: right;
+}

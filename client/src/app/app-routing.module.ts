@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 import { CategoryPageComponent } from "./category-page/category-page.component";
 import { ItemPageComponent } from "./item-page/item-page.component";
 import { SearchResultsComponent } from "./search-results/search-results.component";
+import { CartComponent } from "./cart/cart.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "results",
     component: SearchResultsComponent
+  },
+  {
+    path: "cart",
+    component: CartComponent
   }
 ];
 
