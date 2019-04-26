@@ -8,6 +8,7 @@ import { SearchResultsComponent } from "./search-results/search-results.componen
 import { CartComponent } from "./cart/cart.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
+import { UserDashComponent } from "./user-dash/user-dash.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path: "user",
+    component: UserDashComponent
   }
 ];
 

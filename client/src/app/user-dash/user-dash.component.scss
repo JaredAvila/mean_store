@@ -1,0 +1,92 @@
+@import "../../styles.scss";
+
+.dash {
+  background-image: linear-gradient(
+    to bottom right,
+    white 30%,
+    white 50%,
+    rgba($color-orange, 0.7) 100%
+  );
+  @include clearFix;
+  padding: 2rem;
+  color: $color-dark;
+
+  &__left {
+    float: left;
+    width: 40%;
+
+    &--welcome {
+      letter-spacing: 1rem;
+      font-size: 1rem;
+      color: white;
+      background-color: $color-blue;
+      text-align: center;
+    }
+
+    &--name {
+      color: $color-blue;
+      font-size: 2.5rem;
+      padding: 3rem 0;
+    }
+
+    &--info {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    &--form {
+      & > * {
+        display: block;
+      }
+    }
+
+    &--input {
+      outline: none;
+      font-size: 1rem;
+      padding: 0.5rem 0;
+      border: none;
+      margin: 0.5rem 0;
+      border-bottom: 2px solid $color-orange;
+    }
+
+    &--btn {
+      cursor: pointer;
+      text-align: center;
+      padding: 0.6rem 2.5rem;
+      outline: none;
+      border-radius: 2.5rem;
+      font-size: 1.2rem;
+      transition: $transition;
+      border: none;
+      color: white;
+      background-color: $color-blue;
+      border: 2px solid $color-blue;
+      margin-top: 2rem;
+
+      &:active {
+        filter: brightness(0.9);
+      }
+
+      &:hover {
+        color: $color-blue;
+        background-color: white;
+      }
+    }
+  }
+  &__right {
+    float: right;
+
+    &--text {
+      letter-spacing: 1rem;
+      font-size: 1rem;
+      color: white;
+      background-color: $color-blue;
+      text-align: center;
+    }
+
+    &--orders {
+      height: 91vh;
+      overflow-y: scroll;
+    }
+  }
+}

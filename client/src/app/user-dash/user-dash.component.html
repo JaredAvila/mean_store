@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="dash">
+  <div class="dash__left">
+    <p class="dash__left--welcome">Welcome</p>
+    <h3 class="dash__left--name">Jared Avila</h3>
+    <p class="dash__left--info">
+      here you can edit and update your info. When done click the 'Update Info'
+      button to save the changes you've made.
+    </p>
+    <form action="#" class="dash__left--form">
+      <input
+        type="email"
+        placeholder="jared.c.avila@gmail.com"
+        class="dash__left--input"
+      />
+      <label for="street">Shipping address:</label>
+      <input
+        class="dash__left--input"
+        type="text"
+        name="street"
+        placeholder="228 Florence St."
+      />
+      <input
+        class="dash__left--input"
+        type="text"
+        name="city"
+        placeholder="Sunnyvale"
+      />
+      <input
+        class="dash__left--input"
+        type="text"
+        name="state"
+        placeholder="CA"
+      />
+      <input
+        class="dash__left--input"
+        type="text"
+        name="zip"
+        placeholder="94086"
+      />
+      <button class="dash__left--btn" type="button">Update Info</button>
+    </form>
+  </div>
+  <div class="dash__right">
+    <p class="dash__right--text">Order History</p>
+    <div class="dash__right--orders">
+      <app-order></app-order>
+      <app-order></app-order>
+      <app-order></app-order>
+      <app-order></app-order>
+      <app-order></app-order>
+      <app-order></app-order>
+    </div>
+  </div>
+</div>

@@ -21,9 +21,11 @@ import { CartItemComponent } from './cart-item/cart-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UserDashComponent } from './user-dash/user-dash.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent, CategoryPageComponent, ItemPageComponent, SearchResultsComponent, AddToCartComponent, CartComponent, CartItemComponent, FooterComponent, LoginComponent, RegisterComponent],
+  declarations: [AppComponent, HomeComponent, LandingComponent, NavbarComponent, SaleComponent, ItemComponent, PopularItemsComponent, FeaturedCategoriesComponent, CategoryComponent, CategoryPageComponent, ItemPageComponent, SearchResultsComponent, AddToCartComponent, CartComponent, CartItemComponent, FooterComponent, LoginComponent, RegisterComponent, UserDashComponent, OrderComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
