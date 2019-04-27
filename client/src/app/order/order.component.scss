@@ -1,6 +1,36 @@
-p {
-  height: 7rem;
-  width: 30rem;
-  background-color: orangered;
+@import "../../styles.scss";
+
+.order {
+  @include clearFix;
+  width: fit-content;
+  padding: 0 1rem;
   margin: 0.5rem 0;
+  background-color: $color-light;
+  border-radius: 2px;
+  border: 1px solid $color-dark;
+  font-size: .8rem;
+
+  &__img {
+    height: 5rem;
+    float: left;
+  }
+
+  &__title {
+    width: 50%;
+    float: left;
+  }
+
+  &__price {
+    width: 15%;
+    float: right;
+  }
+
+  &__date {
+    width: 15%;
+    float: right;
+  }
+}
+
+span {
+  font-weight: bold;
 }

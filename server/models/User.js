@@ -45,6 +45,10 @@ const UserSchema = new Schema({
         type: String,
         required: true
       },
+      img: {
+        type: String,
+        required: true
+      },
       qty: {
         type: Number,
         required: true
