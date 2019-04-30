@@ -15,4 +15,9 @@ export class AuthService {
   registerUser(user) {
     return this._http.post("/api/users/register", user);
   }
+
+  //login admin
+  loginAdmin(admin) {
+    return this._http.post("/api/admin/login", admin);
+  }
 }

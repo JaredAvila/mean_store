@@ -25,19 +25,19 @@ router.post("/login", (req, res) => {
 
   //Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.json({ errors });
   }
   //Find user by email
   User.findOne({ email }).then(user => {
     //Check if user exists
     if (!user) {
       errors.admin = "Invalid credentials";
-      return res.status(404).json(errors);
+      return res.json({ errors });
     }
     //Check if user is Admin
     if (user.status !== 301) {
       errors.admin = "Must register as an admin";
-      return res.status(404).json(errors);
+      return res.json({ errors });
     }
     //Check password
     bcrypt.compare(password, user.password).then(match => {
@@ -59,7 +59,7 @@ router.post("/login", (req, res) => {
         );
       } else {
         errors.admin = "Invalid credentials";
-        return res.status(400).json(errors);
+        return res.json({ errors });
       }
     });
   });

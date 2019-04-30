@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
       img: "../../assets/img/categories/books.jpg"
     },
     {
-      title: "Atrs/Crafts",
+      title: "Arts/Crafts",
       img: "../../assets/img/categories/arts.jpg"
     },
     {

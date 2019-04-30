@@ -32,7 +32,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  onRegister() {
+  onRegister(e) {
+    e.preventDefault();
     this.errors = {
       email: false,
       emailMsg: "",

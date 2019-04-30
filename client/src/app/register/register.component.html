@@ -4,7 +4,7 @@
   /></a>
   <h2 class="login__text">Create your Mean Shopping account</h2>
   <p>* required field</p>
-  <form action="#" class="login__form">
+  <form (submit)="onRegister($event)" class="login__form">
     <!-- first name -->
     <label
       *ngIf="!errors.firstName; else firstNameElse"
@@ -97,8 +97,7 @@
       type="password" 
       name="password2" />
     <button
-      (click)="onRegister()"
-      type="button"
+      type="submit"
       class="login__form--button login__form--button-solid"
     >
       Create Account

@@ -2,10 +2,10 @@
   <a routerLink="/home"
     ><img src="../../logo.png" alt="" class="login__img"
   /></a>
-  <h2 class="login__text">Sign in to your Mean Shopping account</h2>
+  <h2 class="login__text">Admin Login</h2>
   <form (submit)="onLogin($event)" class="login__form">
     <label
-      *ngIf="!errors.email; else elseEmail"
+      *ngIf="!errors.email && !errors.admin; else elseEmail"
       class="login__form--label"
       for="email"
       >Email address (required)</label
@@ -13,14 +13,14 @@
     <ng-template #elseEmail>
       <label class="login__form--label errorMsg" for="email">{{
         errors.emailMsg
-      }}</label>
+      }}{{ errors.adminMsg }}</label>
     </ng-template>
 
     <input
       class="login__form--input"
       type="text"
       name="email"
-      [(ngModel)]="user.email"
+      [(ngModel)]="admin.email"
       [ngClass]="{ hasErrors: errors.email }"
     />
     <label
@@ -39,23 +39,11 @@
       class="login__form--input"
       type="password"
       name="password"
-      [(ngModel)]="user.password"
+      [(ngModel)]="admin.password"
       [ngClass]="{ hasErrors: errors.password }"
     />
-    <button
-      type="submit"
-      class="login__form--button login__form--button-solid"
-    >
+    <button type="submit" class="login__form--button login__form--button-solid">
       Sign In
     </button>
-    <p>Don't have an account?</p>
-    <a routerLink="/register"
-      ><button
-        type="button"
-        class="login__form--button login__form--button-clear"
-      >
-        Create a new account
-      </button></a
-    >
   </form>
 </div>

@@ -4,6 +4,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 
+//Services
+import { AuthService } from "./auth.service";
+import { AdminService } from "./admin.service";
+import { ItemService } from "./item.service";
+
 //Components
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
@@ -25,9 +30,9 @@ import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { UserDashComponent } from "./user-dash/user-dash.component";
 import { OrderComponent } from "./order/order.component";
-
-//Services
-import { AuthService } from "./auth.service";
+import { AdminDashComponent } from "./admin-dash/admin-dash.component";
+import { AdminLoginComponent } from "./admin-login/admin-login.component";
+import { AdminComponent } from "./admin/admin.component";
 
 @NgModule({
   declarations: [
@@ -50,10 +55,13 @@ import { AuthService } from "./auth.service";
     LoginComponent,
     RegisterComponent,
     UserDashComponent,
-    OrderComponent
+    OrderComponent,
+    AdminDashComponent,
+    AdminLoginComponent,
+    AdminComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [AuthService],
+  providers: [AuthService, AdminService, ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

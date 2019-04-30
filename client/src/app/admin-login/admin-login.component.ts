@@ -3,22 +3,25 @@ import { AuthService } from "../auth.service";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  selector: "app-admin-login",
+  templateUrl: "./admin-login.component.html",
+  styleUrls: ["./admin-login.component.scss"]
 })
-export class LoginComponent implements OnInit {
-  constructor(private _auth: AuthService, private router: Router) {}
-  user: Object = {
+export class AdminLoginComponent implements OnInit {
+  admin: Object = {
     email: "",
     password: ""
   };
   errors: Object = {
     email: false,
     emailMsg: "",
+    admin: false,
+    adminMsg: "",
     password: false,
     passwordMsg: ""
   };
+
+  constructor(private _auth: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -30,7 +33,8 @@ export class LoginComponent implements OnInit {
       password: false,
       passwordMsg: ""
     };
-    this._auth.loginUser(this.user).subscribe(data => {
+    this._auth.loginAdmin(this.admin).subscribe(data => {
+      console.log(data);
       if (data["errors"]) {
         let errorMessage = Object.keys(data["errors"])[0];
         switch (errorMessage.length > 0) {
@@ -40,10 +44,13 @@ export class LoginComponent implements OnInit {
           case errorMessage === "password":
             this.errors["password"] = true;
             this.errors["passwordMsg"] = data["errors"]["password"];
+          case errorMessage === "admin":
+            this.errors["admin"] = true;
+            this.errors["adminMsg"] = data["errors"]["admin"];
         }
       } else {
         localStorage.setItem("token", data["token"]);
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/admin/dash"]);
       }
     });
   }

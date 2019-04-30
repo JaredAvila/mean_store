@@ -9,6 +9,9 @@ import { CartComponent } from "./cart/cart.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { UserDashComponent } from "./user-dash/user-dash.component";
+import { AdminComponent } from "./admin/admin.component";
+import { AdminDashComponent } from "./admin-dash/admin-dash.component";
+import { AdminLoginComponent } from "./admin-login/admin-login.component";
 
 const routes: Routes = [
   {
@@ -46,6 +49,20 @@ const routes: Routes = [
   {
     path: "user",
     component: UserDashComponent
+  },
+  {
+    path: "admin",
+    component: AdminComponent,
+    children: [
+      {
+        path: "login",
+        component: AdminLoginComponent
+      },
+      {
+        path: "dash",
+        component: AdminDashComponent
+      }
+    ]
   }
 ];
 
