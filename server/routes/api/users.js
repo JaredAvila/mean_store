@@ -25,7 +25,7 @@ router.post("/register", (req, res) => {
 
   //Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.json({ errors });
   }
 
   //Check to see if email is already in DB
@@ -34,7 +34,7 @@ router.post("/register", (req, res) => {
       if (user) {
         //User already exists
         errors.email = "There is already an account with that email.";
-        return res.status(400).json(errors);
+        return res.json(errors);
         //user does not exist. Register user.
       } else {
         const newUser = new User({
@@ -50,7 +50,23 @@ router.post("/register", (req, res) => {
             newUser.password = hash;
             newUser
               .save()
-              .then(user => res.json({ message: "success", user }))
+              .then(user => {
+                //generate token
+                const payload = {
+                  id: user.id,
+                  name: user.firstName,
+                  status: 101
+                };
+                //sign the token
+                jwt.sign(
+                  payload,
+                  keys.secretOrKey,
+                  { expiresIn: 3600 },
+                  (err, token) => {
+                    res.json({ message: "success", token: "Bearer " + token });
+                  }
+                );
+              })
               .catch(err => console.log(err));
           });
         });

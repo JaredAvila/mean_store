@@ -5,22 +5,102 @@
   <h2 class="login__text">Create your Mean Shopping account</h2>
   <p>* required field</p>
   <form action="#" class="login__form">
-    <label class="login__form--label" for="first_name">First name*</label>
-    <input class="login__form--input" type="text" name="first_name" required />
-    <label class="login__form--label" for="last_name">Last name*</label>
-    <input class="login__form--input" required type="text" name="last_name" />
-    <label class="login__form--label" for="email">Email address*</label>
-    <input class="login__form--input" type="email" name="email" required />
-    <label class="login__form--label" for="password">Password*</label>
+    <!-- first name -->
+    <label
+      *ngIf="!errors.firstName; else firstNameElse"
+      class="login__form--label"
+      for="firstName"
+      >First name*</label
+    >
+    <ng-template #firstNameElse>
+      <label for="firstName" class="login__form--label errorMsg">{{
+        errors.firstNameMsg
+      }}</label>
+    </ng-template>
+    <input
+      [ngClass]="{ hasErrors: errors['firstName'] }"
+      [(ngModel)]="user.firstName"
+      class="login__form--input"
+      type="text"
+      name="firstName"
+    />
+    <!-- last name -->
+    <label
+      *ngIf="!errors.lastName; else lastNameElse"
+      class="login__form--label"
+      for="lastName"
+      >Last name*</label
+    >
+    <ng-template #lastNameElse>
+      <label for="lastName" class="login__form--label errorMsg">{{
+        errors.lastNameMsg
+      }}</label>
+    </ng-template>
+    <input
+      [ngClass]="{ hasErrors: errors['lastName'] }"
+      [(ngModel)]="user.lastName"
+      class="login__form--input"
+      required
+      type="text"
+      name="lastName"
+    />
+    <!-- email -->
+    <label
+      *ngIf="!errors.email; else emailElse"
+      class="login__form--label"
+      for="email"
+      >Email address*</label
+    >
+    <ng-template #emailElse>
+      <label for="email" class="login__form--label errorMsg">{{
+        errors.emailMsg
+      }}</label>
+    </ng-template>
+    <input
+      [ngClass]="{ hasErrors: errors['email'] }"
+      [(ngModel)]="user.email"
+      class="login__form--input"
+      type="email"
+      name="email"
+      required
+    />
+    <!-- password -->
+    <label
+      *ngIf="!errors.password; else passwordElse"
+      class="login__form--label"
+      for="password"
+      >Password*</label
+    >
+    <ng-template #passwordElse>
+      <label for="password" class="login__form--label errorMsg">{{
+        errors.passwordMsg
+      }}</label>
+    </ng-template>
     <input
       class="login__form--input"
       type="password"
       name="password"
-      required
+      [ngClass]="{ hasErrors: errors['password'] }"
+      [(ngModel)]="user.password"
     />
-    <label class="login__form--label" for="password2">Confirm password</label>
-    <input class="login__form--input" type="password" name="password2" />
-    <button type="button" class="login__form--button login__form--button-solid">
+    <!-- password confirm -->
+    <label *ngIf="!errors.password2; else password2Else" class="login__form--label" for="password2">Confirm password</label>
+    <ng-template #password2Else>
+        <label for="password2" class="login__form--label errorMsg">{{
+          errors.password2Msg
+        }}</label>
+      </ng-template>
+    <input 
+      [ngClass]="{ hasErrors: errors['password2'] }" 
+      [(ngModel)]="user.password2" 
+      class="login__form--input" 
+      type="password" 
+      name="password2" />
+    <button
+      (click)="onRegister()"
+      type="button"
+      class="login__form--button login__form--button-solid"
+    >
       Create Account
     </button>
     <p>Already have an account?</p>

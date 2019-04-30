@@ -11,4 +11,8 @@ export class AuthService {
   loginUser(user) {
     return this._http.post("/api/users/login", user);
   }
+  //Register user
+  registerUser(user) {
+    return this._http.post("/api/users/register", user);
+  }
 }
