@@ -6,10 +6,20 @@
   color: $color-dark;
   border-radius: 3px;
   box-shadow: $box-shadow-dark;
-  @include absCenter;
-
   background-color: $color-light;
   padding: 3rem;
+
+  @include absCenter;
+  @include respond(tablet) {
+    width: 80%;
+  }
+
+  @include respond(phone) {
+    padding: 0.7rem 0.7rem 4rem 0.7rem;
+    width: 100%;
+    top: 20.5rem;
+    right: 5rem;
+  }
 
   &__content {
     @include clearFix;
@@ -41,6 +51,9 @@
   }
 
   &__buttons {
+    @include respond(phone) {
+      margin-left: 2rem;
+    }
     button {
       &:not(:last-child) {
         margin-right: 0.5rem;

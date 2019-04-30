@@ -7,6 +7,14 @@
   height: 100vh;
   @include clearFix;
 
+  @include respond(tablet) {
+    width: 90%;
+  }
+
+  @include respond(phone) {
+    padding: 0;
+  }
+
   &__left {
     float: left;
     border-left: 1px solid $color-dark;
@@ -14,6 +22,18 @@
     padding: 3rem 1.5rem;
     border-radius: 2px;
     height: 100vh;
+
+    @include respond(tablet) {
+      float: none;
+      padding: 1rem 1.5rem;
+      height: fit-content;
+      width: fit-content;
+    }
+
+    @include respond(phone) {
+      padding: 0;
+      border: none;
+    }
   }
 
   &__right {
@@ -23,7 +43,21 @@
     top: 7rem;
     right: 2rem;
     border-left: 1px solid $color-dark;
-    padding-left: 2rem;
+    padding-left: 1.6rem;
+
+    @include respond(tablet) {
+      float: none;
+      width: 90%;
+      position: inherit;
+
+      button {
+        margin-bottom: 1rem;
+      }
+    }
+
+    @include respond(phone) {
+      border: none;
+    }
 
     &--sub-total,
     &--tax,

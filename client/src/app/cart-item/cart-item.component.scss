@@ -12,11 +12,19 @@
   &__img {
     float: left;
     width: 20%;
+
+    @include respond(phone) {
+      width: 30%;
+    }
   }
   &__info {
     float: left;
     width: 60%;
     font-size: 1rem;
+
+    @include respond(phone) {
+      font-size: 0.8rem;
+    }
 
     &--qty {
       width: 2.5rem;
@@ -29,6 +37,10 @@
   &__price {
     float: right;
     font-size: 1rem;
+
+    @include respond(phone) {
+      margin-right: 3rem;
+    }
   }
 
   &__remove {
