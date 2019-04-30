@@ -9,6 +9,10 @@
     box-shadow: 0 1.2rem 5rem rgba($color-dark, 0.5);
     background-color: $color-blue-light;
 
+    @include respond(tablet) {
+      font-size: 1rem;
+    }
+
     @include clearFix;
   }
 
@@ -17,6 +21,14 @@
     padding: 0 2rem;
     transition: $transition;
     cursor: pointer;
+
+    @include respond(tablet) {
+      height: 1.5rem;
+    }
+
+    @include respond(phone) {
+      padding: 0 0.5rem;
+    }
 
     &:hover {
       transform: scale(1.4);
@@ -31,6 +43,10 @@
       position: absolute;
       top: 0.1rem;
       left: 6rem;
+
+      @include respond(phone) {
+        left: 2.4rem;
+      }
 
       &:focus .navigation__dropdown--menu {
         visibility: visible;
@@ -47,6 +63,10 @@
     float: left;
     padding: 0 0 1.4rem 0;
     position: relative;
+
+    @include respond(phone) {
+      display: none;
+    }
 
     &--bar {
       padding: 0.4rem;
@@ -72,6 +92,14 @@
     transition: $transition;
     cursor: pointer;
 
+    @include respond(tablet) {
+      font-size: 1.6rem;
+    }
+
+    @include respond(phone) {
+      padding: 0 1rem;
+    }
+
     &:hover {
       color: $color-light;
     }
@@ -86,6 +114,10 @@
 
     i {
       font-size: 2.7rem;
+
+      @include respond(tablet) {
+        font-size: 1.6rem;
+      }
     }
 
     &:focus > div {
@@ -106,11 +138,23 @@
       border-bottom-right-radius: 4px;
       transition: all 150ms;
       z-index: 100;
+
+      @include respond(tablet) {
+        top: 3.2rem;
+      }
+
+      @include respond(phone) {
+        top: 1.7rem;
+      }
     }
 
     &--list {
       font-size: 1.6rem;
       list-style: none;
+
+      @include respond(tablet) {
+        font-size: 1.2rem;
+      }
     }
 
     &--item {
@@ -118,6 +162,10 @@
       color: $color-dark;
       cursor: pointer;
       border-bottom: 1px solid $color-light;
+
+      @include respond(tablet) {
+        padding: 0.5rem 1rem;
+      }
 
       a {
         text-decoration: none;
@@ -142,11 +190,23 @@
       border-bottom-right-radius: 4px;
       transition: all 150ms;
       z-index: 120;
+
+      @include respond(tablet) {
+        top: 3.4rem;
+      }
+
+      @include respond(phone) {
+        top: 1.9rem;
+      }
     }
 
     &--list {
       font-size: 1.6rem;
       list-style: none;
+
+      @include respond(tablet) {
+        font-size: 1rem;
+      }
     }
 
     &--item {
@@ -154,6 +214,10 @@
       color: $color-dark;
       cursor: pointer;
       border-bottom: 1px solid $color-light;
+
+      @include respond(tablet) {
+        padding: 0.5rem 1rem;
+      }
 
       a {
         text-decoration: none;

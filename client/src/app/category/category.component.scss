@@ -12,6 +12,11 @@
   overflow: hidden;
   transition: $transition;
 
+  @include respond(phone) {
+    margin: auto;
+    margin-top: 1rem;
+  }
+
   &:hover {
     transform: translateY(-1rem);
   }
@@ -28,6 +33,10 @@
   &__img {
     height: 12rem;
     transition: $transition;
+
+    @include respond(phone) {
+      filter: brightness(60%);
+    }
   }
 
   &__name {
@@ -39,5 +48,10 @@
     transition: $transition;
     transform: translate(-50%, -50%) scale(0.01);
     cursor: inherit;
+
+    @include respond(phone) {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }

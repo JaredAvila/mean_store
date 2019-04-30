@@ -46,6 +46,43 @@ $transition: all 250ms ease-in-out;
   transform: translate(-50%, -50%);
 }
 
+//media queries
+
+// 0-600px - phone
+// 600-900px - tab-port
+// 900-1200px - tab-land
+// 1200-1800 - desktop
+// 1800- ~ - big-desk
+
+// 1em = 16px
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (max-width: 50em) {
+      //800px
+      @content;
+    }
+  }
+  @if $breakpoint == desk {
+    @media (max-width: 78em) {
+      //1250px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desk {
+    @media (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}
+
 // animations
 
 @keyframes bounce-right {
@@ -79,23 +116,14 @@ $transition: all 250ms ease-in-out;
     letter-spacing: 0.3rem;
     font-weight: 600;
     text-transform: uppercase;
+
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
   }
 
   &--item {
     font-size: 1.2rem;
-    font-weight: 500;
-    color: $color-dark;
-    transition: $transition;
-    cursor: default;
-
-    &:hover {
-      transform: scale(1.1);
-      color: $color-orange;
-    }
-  }
-
-  &--sale-item {
-    font-size: 3rem;
     font-weight: 500;
     color: $color-dark;
     transition: $transition;
@@ -116,6 +144,10 @@ $transition: all 250ms ease-in-out;
   text-decoration: none;
   border-bottom: 2px solid $color-dark;
   position: relative;
+
+  @include respond(phone) {
+    font-size: 1rem;
+  }
 
   &:hover {
     color: white;
@@ -232,6 +264,10 @@ $transition: all 250ms ease-in-out;
 
     i {
       font-size: 2rem;
+
+      @include respond(tablet) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -245,6 +281,14 @@ $transition: all 250ms ease-in-out;
     border-radius: 4px;
     padding: 0.3rem 1.5rem;
     transition: $transition;
+
+    @include respond(tablet) {
+      font-size: 1rem;
+    }
+
+    @include respond(phone) {
+      padding: 0.3rem 1rem;
+    }
 
     &:hover {
       color: $color-light;
@@ -279,4 +323,8 @@ $transition: all 250ms ease-in-out;
 }
 .margin-bottom-big {
   margin-bottom: 8rem;
+
+  @include respond(phone) {
+    margin-bottom: 4rem;
+  }
 }

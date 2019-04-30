@@ -19,20 +19,37 @@
     width: 30%;
     float: left;
 
+    @include respond(desk) {
+      width: 100%;
+      float: none;
+    }
+
     &--title {
       position: absolute;
       top: 50%;
       left: 2%;
       font-size: 1.7rem;
+
+      @include respond(desk) {
+        position: initial;
+      }
     }
   }
   &__right {
-    width: 70%;
+    width: 624px;
     float: right;
+
+    @include respond(tablet) {
+      width: 100%;
+    }
 
     &--cats {
       & > * {
         float: right;
+
+        @include respond(phone) {
+          float: none;
+        }
       }
     }
   }

@@ -8,11 +8,23 @@
   &__items {
     @include clearFix;
 
+    @include respond(phone) {
+      margin: auto;
+    }
+
     & > * {
       float: left;
 
+      @include respond(phone) {
+        float: none;
+      }
+
       &:not(:last-child) {
         margin-right: 3.5rem;
+
+        @include respond(desk) {
+          margin-right: 1.5rem;
+        }
       }
     }
   }
