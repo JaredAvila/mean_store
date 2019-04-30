@@ -4,13 +4,49 @@
   /></a>
   <h2 class="login__text">Sign in to your Mean Shopping account</h2>
   <form action="#" class="login__form">
-    <label class="login__form--label" for="email"
+    <label
+      *ngIf="!errors.email; else elseEmail"
+      class="login__form--label"
+      for="email"
       >Email address (required)</label
     >
-    <input class="login__form--input" type="text" name="email" />
-    <label class="login__form--label" for="passwrod">Password (required)</label>
-    <input class="login__form--input" type="password" name="password" />
-    <button type="button" class="login__form--button login__form--button-solid">
+    <ng-template #elseEmail>
+      <label class="login__form--label errorMsg" for="email">{{
+        errors.emailMsg
+      }}</label>
+    </ng-template>
+
+    <input
+      class="login__form--input"
+      type="text"
+      name="email"
+      [(ngModel)]="user.email"
+      [ngClass]="{ hasErrors: errors.email }"
+    />
+    <label
+      *ngIf="!errors.password; else elsePassword"
+      class="login__form--label"
+      for="passwrod"
+      >Password (required)</label
+    >
+    <ng-template #elsePassword>
+      <label class="login__form--label errorMsg" for="passwrod">{{
+        errors.passwordMsg
+      }}</label>
+    </ng-template>
+
+    <input
+      class="login__form--input"
+      type="password"
+      name="password"
+      [(ngModel)]="user.password"
+      [ngClass]="{ hasErrors: errors.password }"
+    />
+    <button
+      type="button"
+      (click)="onLogin()"
+      class="login__form--button login__form--button-solid"
+    >
       Sign In
     </button>
     <p>Don't have an account?</p>

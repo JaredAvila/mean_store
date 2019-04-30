@@ -69,7 +69,7 @@ router.post("/login", (req, res) => {
 
   //Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.json({ errors });
   }
 
   //Find user by email
@@ -77,7 +77,7 @@ router.post("/login", (req, res) => {
     //Check if user exists
     if (!user) {
       errors.email = "User not found";
-      return res.status(404).json(errors);
+      return res.json({ errors });
     }
 
     //Check password
@@ -100,7 +100,7 @@ router.post("/login", (req, res) => {
         );
       } else {
         errors.password = "Password incorrect";
-        return res.status(400).json(errors);
+        return res.json({ errors });
       }
     });
   });

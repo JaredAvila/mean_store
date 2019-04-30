@@ -96,3 +96,12 @@
     }
   }
 }
+
+.hasErrors {
+  border: 1px solid $color-red !important;
+  background-color: rgb(255, 213, 213);
+}
+.errorMsg {
+  color: $color-red !important;
+  font-weight: bold;
+}
