@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ItemService } from "../item.service";
 
 @Component({
   selector: "app-item-page",
@@ -6,7 +8,14 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./item-page.component.scss"]
 })
 export class ItemPageComponent implements OnInit {
-  constructor() {}
+  constructor(private route: ActivatedRoute, private _item: ItemService) {}
+  itemId: any;
+  item: Object = {
+    name: "",
+    desc: "",
+    price: "",
+    img: ""
+  };
 
   onAddToCart(data) {
     document.getElementById("atc-modal").style.opacity = "1";
@@ -18,5 +27,15 @@ export class ItemPageComponent implements OnInit {
     document.getElementById("atc-modal").style.visibility = "hidden";
   }
 
-  ngOnInit() {}
+  getId() {
+    this.route.params.subscribe(data => {
+      this._item.getById(data["id"]).subscribe(data => {
+        this.item = data["item"];
+      });
+    });
+  }
+
+  ngOnInit() {
+    this.getId();
+  }
 }

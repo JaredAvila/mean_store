@@ -1,15 +1,20 @@
 <div class="container">
-  <form action="">
+  <form (submit)="onAddItem($event)">
     <label for="name">Item Name</label>
-    <input type="text" name="name" />
+    <input type="text" name="name" [(ngModel)]="item['name']" />
     <label for="desc">Item Description</label>
-    <textarea name="desc" cols="30" rows="10"></textarea>
+    <textarea
+      name="desc"
+      cols="30"
+      rows="10"
+      [(ngModel)]="item['desc']"
+    ></textarea>
     <label for="price">Item Price</label>
-    <input type="currency" name="text" />
+    <input type="text" name="text" [(ngModel)]="item['price']" />
     <label for="img">Item Image URL</label>
-    <input type="text" name="img" />
+    <input type="text" name="img" [(ngModel)]="item['img']" />
     <label for="category">Item Category</label>
-    <select name="category">
+    <select name="category" [(ngModel)]="item['category']">
       <option value="books">Books/Magazines</option>
       <option value="arts">Arts/Crafts</option>
       <option value="tech">Tech/Gadgets</option>
@@ -20,5 +25,7 @@
       <option value="outdoor">Outdoor/Gardening</option>
       <option value="games">Video Games</option>
     </select>
+    <button class="btn btn--orange" type="submit">Submit</button>
+    <p>{{ errors["errorMsg"] }}</p>
   </form>
 </div>

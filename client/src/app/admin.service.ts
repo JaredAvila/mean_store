@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
 export class AdminService {
   constructor(private _http: HttpClient) {}
 
-  newItem(item) {
-    return this._http.post("/api/admin/addNew", item);
+  newItem(item, headers) {
+    return this._http.post("/api/admin/addNew", item, { headers });
   }
 }

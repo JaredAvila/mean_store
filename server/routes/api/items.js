@@ -37,15 +37,13 @@ router.post("/item", (req, res) => {
   Item.findOne({ _id: req.body.itemId })
     .then(item => {
       if (!item) {
-        return res.status(404).json({ message: "error, item not found" });
+        return res.json({ message: "error, item not found" });
       }
       res.json({ message: "success", item });
     })
     .catch(err => {
       if (err) {
-        return res
-          .status(404)
-          .json({ message: "error, item not found", error: err });
+        return res.json({ message: "error, item not found", error: err });
       }
     });
 });

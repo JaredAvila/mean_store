@@ -126,15 +126,14 @@ router.post(
   (req, res) => {
     //check if logged in user is an admin
     if (req.user.status != 301) {
-      return res.status(400).json({
-        message: "error",
-        error: "You must be an admin to do that"
+      return res.json({
+        errors: {"auth": "Unauthorized"}
       });
     }
     const { errors, isValid } = validateItemInput(req.body);
     //Check validation
     if (!isValid) {
-      return res.status(400).json(errors);
+      return res.json({errors});
     }
     //create new item and save
     let newItem = new Item({

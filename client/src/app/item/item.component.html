@@ -1,17 +1,20 @@
 <div class="item">
   <div class="item__side item__side--front">
-    <div class="item__img margin-bottom-small"></div>
-    <h4 class="heading--item">Wolverine Figure</h4>
+    <div
+      class="item__img margin-bottom-small"
+      [ngStyle]="{ 'background-image': 'url(' + item.img + ')' }"
+    ></div>
+    <h4 class="heading--item item__heading--front">{{ item.name }}</h4>
   </div>
   <div class="item__side item__side--back">
-    <h4 class="heading--item margin-bottom-small">Wolverine</h4>
-    <p class="item__price">$19.95</p>
-    <p class="item__desc">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore natus
-      quasi laudantium placeat libero corporis et eveniet fugiat. Deserunt,
-      iusto?
-    </p>
-    <a routerLink="/item" class="link link--small item__item-link">
+    <h4 class="item__heading--back margin-bottom-small margin-top-small">
+      {{ item.name }}
+    </h4>
+    <p class="item__price">{{ item.price | currency }}</p>
+    <a
+      routerLink="/item/{{ item._id }}"
+      class="link link--small item__item-link"
+    >
       View Item
       <i class="material-icons">
         arrow_forward

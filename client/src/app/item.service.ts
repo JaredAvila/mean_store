@@ -10,4 +10,8 @@ export class ItemService {
   getAll() {
     return this._http.get("/api/items");
   }
+
+  getById(itemId) {
+    return this._http.post("/api/items/item", { itemId });
+  }
 }
