@@ -8,7 +8,7 @@ import { ItemService } from "../item.service";
 })
 export class ItemComponent implements OnInit {
   @Output() addToCart = new EventEmitter();
-  @Input() itemId: any;
+  @Input() newItem: any;
 
   constructor(private _item: ItemService) {}
 
@@ -21,9 +21,7 @@ export class ItemComponent implements OnInit {
   }
 
   getItem() {
-    this._item.getById(this.itemId).subscribe(data => {
-      this.item = data["item"];
-    });
+    this.item = this.newItem;
   }
 
   ngOnInit() {

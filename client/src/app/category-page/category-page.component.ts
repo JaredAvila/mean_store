@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { ItemService } from "../item.service";
 
 @Component({
   selector: "app-category-page",
@@ -6,7 +7,9 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
   styleUrls: ["./category-page.component.scss"]
 })
 export class CategoryPageComponent implements OnInit {
-  constructor() {}
+  constructor(private _item: ItemService) {}
+
+  items: Array<Object>;
 
   onAddToCart(data) {
     document.getElementById("atc-modal").style.opacity = "1";
@@ -18,5 +21,14 @@ export class CategoryPageComponent implements OnInit {
     document.getElementById("atc-modal").style.visibility = "hidden";
   }
 
-  ngOnInit() {}
+  getItems() {
+    this._item.getAll().subscribe(data => {
+      console.log("items: ", data);
+      this.items = data["items"];
+    });
+  }
+
+  ngOnInit() {
+    this.getItems();
+  }
 }
