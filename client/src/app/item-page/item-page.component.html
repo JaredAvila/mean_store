@@ -7,7 +7,7 @@
         <h4 class="item__content--title">{{ item.name }}</h4>
         <p class="item__content--price">{{ item.price | currency }}</p>
         <form action="#" class="item__content--form">
-          <input type="number" value="1" name="qty" class="qty" />
+          <input type="number" [(ngModel)]="qty" name="qty" class="qty" />
           <label for="qty">Qty</label>
           <button
             type="button"

@@ -1,21 +1,35 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-add-to-cart',
-  templateUrl: './add-to-cart.component.html',
-  styleUrls: ['./add-to-cart.component.scss']
+  selector: "app-add-to-cart",
+  templateUrl: "./add-to-cart.component.html",
+  styleUrls: ["./add-to-cart.component.scss"]
 })
 export class AddToCartComponent implements OnInit {
-
   @Output() closeModal = new EventEmitter();
 
-  constructor() { }
+  item: Object = {
+    name: "",
+    img: ""
+  };
 
-  onCloseModal(){
+  qty: any;
+
+  constructor() {}
+
+  onCloseModal() {
     this.closeModal.emit();
   }
 
-  ngOnInit() {
+  getItemHome(data) {
+    this.item = data;
+    this.qty = 1;
   }
 
+  getItemItem(data) {
+    this.item = data;
+    this.qty = data["qty"];
+  }
+
+  ngOnInit() {}
 }
