@@ -53,7 +53,7 @@ router.post("/item", (req, res) => {
 //  @access           Public
 router.post("/search", (req, res) => {
   //gets a case insensitive regular expression of name input
-  const nameRegex = new RegExp(req.body.name, "i");
+  const nameRegex = new RegExp(req.body.query, "i");
   //finds array of items that have a name "LIKE" input
   Item.find({ name: nameRegex })
     .then(items => {

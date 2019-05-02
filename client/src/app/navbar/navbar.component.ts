@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
+import { SearchResultsComponent } from "../search-results/search-results.component";
 
 @Component({
   selector: "app-navbar",
@@ -6,6 +8,10 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
+  constructor(private _router: Router) {}
+
+  query: String = "";
+
   categories: Array<Object> = [
     {
       title: "Books/Magazines",
@@ -45,7 +51,9 @@ export class NavbarComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  onSearch() {
+    this._router.navigate([`/results/${this.query}`]);
+  }
 
   ngOnInit() {}
 }

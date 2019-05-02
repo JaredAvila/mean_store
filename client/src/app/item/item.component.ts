@@ -19,13 +19,10 @@ export class ItemComponent implements OnInit {
   onAddToCart() {
     this.addToCart.emit(this.item["_id"]);
     let cartItem = { item: this.item, qty: 1 };
-    this._item.addItemGuest(cartItem).subscribe(cart => {
-      console.log("added=> ", cart);
-    });
+    this._item.addItemGuest(cartItem).subscribe(cart => {});
   }
 
   getItem() {
-    console.log("new item: ", this.newItem);
     this.item = this.newItem;
   }
 

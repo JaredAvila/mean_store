@@ -30,4 +30,9 @@ export class ItemService {
   updateCart(update) {
     return this._http.post("/api/items/updateCart", update);
   }
+
+  searchItems(query) {
+    console.log(query);
+    return this._http.post("api/items/search", { query });
+  }
 }

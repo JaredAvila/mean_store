@@ -31,7 +31,7 @@ const routes: Routes = [
     component: ItemPageComponent
   },
   {
-    path: "results",
+    path: "results/:query",
     component: SearchResultsComponent
   },
   {

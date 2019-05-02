@@ -16,7 +16,9 @@
               *ngFor="let category of categories"
             >
               <li class="navigation__dropdown--item">
-                <a routerLink="/category/{{ category.tag }}">{{ category.title }}</a>
+                <a routerLink="/category/{{ category.tag }}">{{
+                  category.title
+                }}</a>
               </li>
             </ul>
           </div>
@@ -28,14 +30,14 @@
             type="text"
             placeholder="Search"
             class="navigation__search--bar"
+            name="query"
+            [(ngModel)]="query"
           />
-          <a routerLink="/results"
-            ><button type="button" class="btn--search">
-              <i class="material-icons">
-                search
-              </i>
-            </button></a
-          >
+          <button (click)="onSearch()" type="button" class="btn--search">
+            <i class="material-icons">
+              search
+            </i>
+          </button>
         </form>
         <button class="navigation__icon--1">
           <i class="material-icons">
