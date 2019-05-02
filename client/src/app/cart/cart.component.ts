@@ -22,7 +22,6 @@ export class CartComponent implements OnInit {
     this._item.initializeCart().subscribe(cart => {
       this.cart = cart["cart"];
       this.getTotals();
-      console.log(this.cart);
     });
   }
 
@@ -46,15 +45,20 @@ export class CartComponent implements OnInit {
       }
     }
     this.getTotals();
+    this.updateCart();
   }
 
   removeItem(item) {
     for (let i = 0; i < this.cart.length; i++) {
       if (item === this.cart[i]["item"]) {
-        console.log("say yeah!");
         this.cart.splice(i, 1);
       }
     }
     this.getTotals();
+    this.updateCart();
+  }
+
+  updateCart() {
+    this._item.updateCart(this.cart).subscribe(cart => {});
   }
 }

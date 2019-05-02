@@ -85,15 +85,28 @@ router.post("/category", (req, res) => {
     });
 });
 
-//  @route            POST api/items/cart
+//  @route            GET api/items/cart
 //  @desc             Initialize shopping cart
 //  @access           Public
 router.get("/cart", (req, res) => {
   if (!req.session.cart) {
     req.session.cart = [];
-    console.log("cart added to session");
     res.json({ message: "success, new cart=> ", cart: [] });
   } else {
+    res.json({ message: "success", cart: req.session.cart });
+  }
+});
+
+//  @route            POST api/items/updateCart
+//  @desc             Update shopping cart
+//  @access           Public
+router.post("/updateCart", (req, res) => {
+  if (!req.session.cart) {
+    req.session.cart = [];
+    res.json({ message: "success, new cart=> ", cart: [] });
+  } else {
+    req.session.cart = req.body;
+    req.session.save();
     res.json({ message: "success", cart: req.session.cart });
   }
 });

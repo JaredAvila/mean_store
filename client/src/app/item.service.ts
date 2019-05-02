@@ -26,4 +26,8 @@ export class ItemService {
   addItemGuest(cartItem) {
     return this._http.post("api/items/guest/addToCart", cartItem);
   }
+
+  updateCart(update) {
+    return this._http.post("/api/items/updateCart", update);
+  }
 }
