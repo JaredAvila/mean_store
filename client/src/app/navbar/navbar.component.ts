@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { SearchResultsComponent } from "../search-results/search-results.component";
+import { AuthService } from "../auth.service";
+import { HttpHeaders } from "@angular/common/http";
 
 @Component({
   selector: "app-navbar",
@@ -8,9 +9,10 @@ import { SearchResultsComponent } from "../search-results/search-results.compone
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _auth: AuthService) {}
 
   query: String = "";
+  user: Object;
 
   categories: Array<Object> = [
     {
@@ -55,5 +57,20 @@ export class NavbarComponent implements OnInit {
     this._router.navigate([`/results/${this.query}`]);
   }
 
-  ngOnInit() {}
+  getCurrentUser() {
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: localStorage.token
+    });
+    this._auth.getCurrent(headers).subscribe(user => {
+      console.log(user);
+      if (user) {
+        this.user = user["user"];
+      }
+    });
+  }
+
+  ngOnInit() {
+    this.getCurrentUser();
+  }
 }

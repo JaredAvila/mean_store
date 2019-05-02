@@ -125,6 +125,12 @@ router.post("/login", (req, res) => {
 //  @route            GET api/users/current
 //  @desc             Return current user
 //  @access           Private
+// router.get("/current", (req, res) => {
+// if (!req.user) {
+//   res.json({ message: "none" });
+// }
+//   res.json({ message: "success", user: req.user });
+// });
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),

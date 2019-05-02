@@ -20,4 +20,9 @@ export class AuthService {
   loginAdmin(admin) {
     return this._http.post("/api/admin/login", admin);
   }
+
+  //get logged in user or not
+  getCurrent(headers) {
+    return this._http.get("/api/users/current", { headers });
+  }
 }
