@@ -2,10 +2,7 @@
 
 .item-container {
   position: relative;
-
-  @include respond(phone) {
-    height: 100vh;
-  }
+  height: 100vh;
 }
 
 .item-page {

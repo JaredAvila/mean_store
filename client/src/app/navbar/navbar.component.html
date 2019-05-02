@@ -16,7 +16,7 @@
               *ngFor="let category of categories"
             >
               <li class="navigation__dropdown--item">
-                <a routerLink="/category">{{ category.title }}</a>
+                <a routerLink="/category/{{ category.tag }}">{{ category.title }}</a>
               </li>
             </ul>
           </div>

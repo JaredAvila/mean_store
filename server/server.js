@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
+const session = require("express-session");
 
 const users = require("./routes/api/users");
 const items = require("./routes/api/items");
@@ -13,6 +14,12 @@ const app = express();
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(
+  session({
+    secret: "oiu03090vewrdgfavg9a7098702sad",
+    resave: false
+  })
+);
 
 //serve index.html in angular
 app.use(express.static(__dirname + "../../client/dist/client"));

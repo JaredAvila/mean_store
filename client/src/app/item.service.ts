@@ -14,4 +14,8 @@ export class ItemService {
   getById(itemId) {
     return this._http.post("/api/items/item", { itemId });
   }
+
+  getByCategory(cat) {
+    return this._http.post("/api/items/category", cat);
+  }
 }

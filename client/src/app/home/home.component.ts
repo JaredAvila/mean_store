@@ -8,14 +8,14 @@ import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  @ViewChild(AddToCartComponent) child;
+  @ViewChild(AddToCartComponent) addToCart;
   constructor(private _item: ItemService) {}
   currentItem: any;
 
   onAddToCart(data) {
     this._item.getById(data).subscribe(item => {
       this.currentItem = item["item"];
-      this.child.getItemHome(this.currentItem);
+      this.addToCart.getItemHome(this.currentItem);
     });
     document.getElementById("atc-modal").style.opacity = "1";
     document.getElementById("atc-modal").style.visibility = "visible";
