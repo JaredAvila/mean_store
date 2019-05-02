@@ -85,11 +85,37 @@ router.post("/category", (req, res) => {
     });
 });
 
-//  @route            POST api/items/addToCart
+//  @route            POST api/items/cart
+//  @desc             Initialize shopping cart
+//  @access           Public
+router.get("/cart", (req, res) => {
+  if (!req.session.cart) {
+    req.session.cart = [];
+    console.log("cart added to session");
+    res.json({ message: "success, new cart=> ", cart: [] });
+  } else {
+    res.json({ message: "success", cart: req.session.cart });
+  }
+});
+
+//  @route            POST api/items/guest/addToCart
+//  @desc             Adds item to cart for guest
+//  @access           Public
+router.post("/guest/addToCart", (req, res) => {
+  let newCartItem = {
+    item: req.body.item,
+    qty: req.body.qty
+  };
+  req.session.cart.push(newCartItem);
+  req.session.save();
+  res.json({ message: "success", cart: req.session.cart });
+});
+
+//  @route            POST api/items/user/addToCart
 //  @desc             Updates all item qtys in users cart array
 //  @access           Private
 router.post(
-  "/addToCart",
+  "/user/addToCart",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const user = req.user;

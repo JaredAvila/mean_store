@@ -1,23 +1,27 @@
 <app-navbar></app-navbar>
 <div class="cart">
   <div class="cart__left">
-    <app-cart-item></app-cart-item>
-    <app-cart-item></app-cart-item>
-    <app-cart-item></app-cart-item>
+    <div *ngFor="let item of cart">
+      <app-cart-item
+        (qtyUpdate)="updateQty($event)"
+        (remove)="removeItem($event)"
+        [cartItem]="item"
+      ></app-cart-item>
+    </div>
   </div>
   <div class="cart__right">
     <div class="cart__right--sub-total">
       <p class="price--left">Subtotal:</p>
-      <p class="price--right">$9.99</p>
+      <p class="price--right">{{ subtotal | currency }}</p>
     </div>
     <div class="cart__right--tax">
       <p class="price--left">Estimated Tax:</p>
-      <p class="price--right">$0.90</p>
+      <p class="price--right">{{ tax | currency }}</p>
     </div>
     <hr />
     <div class="cart__right--total">
       <p class="price--left">Total:</p>
-      <p class="price--right">$10.89</p>
+      <p class="price--right">{{ total | currency }}</p>
     </div>
     <button class="btn btn--orange">Check Out</button>
   </div>

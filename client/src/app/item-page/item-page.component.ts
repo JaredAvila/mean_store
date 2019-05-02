@@ -32,6 +32,10 @@ export class ItemPageComponent implements OnInit {
       qty: this.qty
     };
     this.child.getItemItem(this.cartItem);
+    let newCartItem = { item: this.item, qty: this.qty };
+    this._item.addItemGuest(newCartItem).subscribe(cart => {
+      console.log("added=> ", cart);
+    });
   }
 
   onCloseModal() {

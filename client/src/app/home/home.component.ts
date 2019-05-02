@@ -11,6 +11,12 @@ export class HomeComponent implements OnInit {
   @ViewChild(AddToCartComponent) addToCart;
   constructor(private _item: ItemService) {}
   currentItem: any;
+  qty: 1;
+
+  //checks to see if there is a cart in session, inits if none
+  setCart() {
+    this._item.initializeCart().subscribe(data => {});
+  }
 
   onAddToCart(data) {
     this._item.getById(data).subscribe(item => {
@@ -27,5 +33,7 @@ export class HomeComponent implements OnInit {
     document.getElementById("atc-modal").style.visibility = "hidden";
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.setCart();
+  }
 }

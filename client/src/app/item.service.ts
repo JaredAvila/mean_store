@@ -7,6 +7,10 @@ import { HttpClient } from "@angular/common/http";
 export class ItemService {
   constructor(private _http: HttpClient) {}
 
+  initializeCart() {
+    return this._http.get("/api/items/cart");
+  }
+
   getAll() {
     return this._http.get("/api/items");
   }
@@ -17,5 +21,9 @@ export class ItemService {
 
   getByCategory(cat) {
     return this._http.post("/api/items/category", cat);
+  }
+
+  addItemGuest(cartItem) {
+    return this._http.post("api/items/guest/addToCart", cartItem);
   }
 }

@@ -1,20 +1,20 @@
 <div class="cart-item">
-  <img
-    src="../../assets/img/items/books/12rules.jpg"
-    alt="items"
-    class="cart-item__img"
-  />
+  <img src="{{ cartItem['item']['img'] }}" alt="items" class="cart-item__img" />
   <div class="cart-item__info">
     <p class="cart-item__info--desc">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt veritatis
-      repellendus iste quas vel. Ratione.
+      {{ cartItem["item"]["desc"] }}
     </p>
-    <input type="number" value="1" class="cart-item__info--qty" />
+    <input
+      type="number"
+      [(ngModel)]="qty"
+      class="cart-item__info--qty"
+      (click)="updateQty()"
+    />
   </div>
-  <p class="cart-item__price">$23.99</p>
+  <p class="cart-item__price">{{ cartItem["item"]["price"] | currency }}</p>
   <div class="cart-item__remove">
     <p class="cart-item__remove--text">Remove item?</p>
-    <i class="material-icons">
+    <i (click)="removeItem(cartItem['item'])" class="material-icons">
       remove_shopping_cart
     </i>
   </div>
