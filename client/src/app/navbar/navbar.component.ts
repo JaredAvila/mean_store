@@ -58,16 +58,25 @@ export class NavbarComponent implements OnInit {
   }
 
   getCurrentUser() {
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: localStorage.token
-    });
-    this._auth.getCurrent(headers).subscribe(user => {
-      console.log(user);
-      if (user) {
-        this.user = user["user"];
-      }
-    });
+    let token = localStorage.getItem("token");
+    if (!token) {
+      this.user = null;
+    } else {
+      let headers = new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: localStorage.token
+      });
+      this._auth.getCurrent(headers).subscribe(user => {
+        if (user) {
+          this.user = user["user"]["_id"];
+        }
+      });
+    }
+  }
+
+  onLogout() {
+    localStorage.removeItem("token");
+    this._router.navigate(["/login"]);
   }
 
   ngOnInit() {

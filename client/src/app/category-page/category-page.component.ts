@@ -48,7 +48,6 @@ export class CategoryPageComponent implements OnInit {
       let currentCat = cat["category"];
       this.category = this.categories[currentCat];
       this._item.getByCategory(cat).subscribe(data => {
-        console.log("items => ", data);
         this.items = data["items"];
       });
     });

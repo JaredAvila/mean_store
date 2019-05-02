@@ -91,3 +91,17 @@
     }
   }
 }
+
+.hasErrors {
+  margin-top: 3rem;
+  color: red;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.hasSuccess {
+  margin-top: 3rem;
+  color: green;
+  font-weight: bold;
+  font-size: 1.1rem;
+}

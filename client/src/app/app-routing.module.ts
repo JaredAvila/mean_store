@@ -47,7 +47,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: "user",
+    path: "user/:id",
     component: UserDashComponent
   },
   {

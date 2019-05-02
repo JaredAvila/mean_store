@@ -54,10 +54,10 @@
             </ul>
             <ul class="navigation__login-dropdown--list" *ngIf="user">
               <li class="navigation__login-dropdown--item">
-                <a routerLink="/user">Profile</a>
+                <a routerLink="/user/{{ user }}">Profile</a>
               </li>
               <li class="navigation__login-dropdown--item">
-                <a routerLink="/login">Logout</a>
+                <p (click)="onLogout()">Logout</p>
               </li>
             </ul>
           </div>

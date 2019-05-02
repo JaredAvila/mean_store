@@ -23,18 +23,6 @@ const UserSchema = new Schema({
     type: Number,
     default: 101
   },
-  cart: [
-    {
-      itemId: {
-        type: String,
-        required: true
-      },
-      qty: {
-        type: Number,
-        required: true
-      }
-    }
-  ],
   pastOrders: [
     {
       name: {
@@ -63,6 +51,20 @@ const UserSchema = new Schema({
       }
     }
   ],
+  shipping: {
+    street: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    state: {
+      type: String
+    },
+    zip: {
+      type: String
+    }
+  },
   date: {
     type: Date,
     default: Date.now

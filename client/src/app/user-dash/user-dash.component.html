@@ -2,7 +2,7 @@
 <div class="dash">
   <div class="dash__left">
     <p class="dash__left--welcome">Welcome</p>
-    <h3 class="dash__left--name">Jared Avila</h3>
+    <h3 class="dash__left--name">{{ user.firstName }} {{ user.lastName }}</h3>
     <p class="dash__left--info">
       here you can edit and update your info. When done click the 'Update Info'
       button to save the changes you've made.
@@ -10,35 +10,52 @@
     <form action="#" class="dash__left--form">
       <input
         type="email"
-        placeholder="jared.c.avila@gmail.com"
+        placeholder="email"
         class="dash__left--input"
+        name="email"
+        [(ngModel)]="user.email"
       />
       <label for="street">Shipping address:</label>
       <input
         class="dash__left--input"
         type="text"
         name="street"
-        placeholder="228 Florence St."
+        placeholder="Address"
+        [(ngModel)]="user.shipping.street"
       />
       <input
         class="dash__left--input"
         type="text"
         name="city"
-        placeholder="Sunnyvale"
+        placeholder="City"
+        [(ngModel)]="user.shipping.city"
       />
       <input
         class="dash__left--input"
         type="text"
         name="state"
-        placeholder="CA"
+        placeholder="State"
+        [(ngModel)]="user.shipping.state"
       />
       <input
         class="dash__left--input"
         type="text"
         name="zip"
-        placeholder="94086"
+        placeholder="zip code"
+        [(ngModel)]="user.shipping.zip"
       />
-      <button class="dash__left--btn" type="button">Update Info</button>
+      <input
+        class="dash__left--input"
+        type="password"
+        name="password"
+        placeholder="Enter your password"
+        [(ngModel)]="password"
+      />
+      <button (click)="updateUser()" class="dash__left--btn" type="button">
+        Update Info
+      </button>
+      <p class="hasErrors" *ngIf="errors">{{ errors }}</p>
+      <p class="hasSuccess" *ngIf="success">{{ success }}</p>
     </form>
   </div>
   <div class="dash__right">

@@ -102,7 +102,6 @@ router.post("/login", (req, res) => {
         //generate token
         const payload = {
           id: user.id,
-          name: user.firstName,
           status: 101
         };
         //sign the token
@@ -125,17 +124,69 @@ router.post("/login", (req, res) => {
 //  @route            GET api/users/current
 //  @desc             Return current user
 //  @access           Private
-// router.get("/current", (req, res) => {
-// if (!req.user) {
-//   res.json({ message: "none" });
-// }
-//   res.json({ message: "success", user: req.user });
-// });
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    res.json({ message: "success", user: req.user });
+    let currentUser = {
+      _id: req.user._id
+    };
+    res.json({ message: "success", user: currentUser });
+  }
+);
+
+//  @route            GET api/users/profile
+//  @desc             Return current users profile info
+//  @access           Private
+router.get(
+  "/profile",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    let currentUser = {
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      email: req.user.email,
+      shipping: req.user.shipping,
+      pastOrders: req.user.pastOrders
+    };
+    res.json({ message: "success", user: currentUser });
+  }
+);
+
+//  @route            PUT api/users/update
+//  @desc             Update user info
+//  @access           Private
+router.put(
+  "/update",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    let password = req.body.password;
+    // check password
+    bcrypt.compare(password, req.user.password).then(match => {
+      if (match) {
+        User.findById(req.user._id).then(user => {
+          let shipping = {
+            street: req.body.user.shipping.street,
+            city: req.body.user.shipping.city,
+            state: req.body.user.shipping.state,
+            zip: req.body.user.shipping.zip
+          };
+          user.email = req.body.user.email;
+          user.shipping = shipping;
+          user
+            .save()
+            .then(user => {
+              res.json({ message: "Success", user });
+            })
+            .catch(err => {
+              res.json({ messgae: "error", err });
+            });
+        });
+      } else {
+        let errors = "Password incorrect";
+        return res.json({ errors });
+      }
+    });
   }
 );
 

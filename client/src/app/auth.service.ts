@@ -25,4 +25,14 @@ export class AuthService {
   getCurrent(headers) {
     return this._http.get("/api/users/current", { headers });
   }
+
+  //get logged in user info
+  getProfile(headers) {
+    return this._http.get("/api/users/profile", { headers });
+  }
+
+  //update user info
+  updateInfo(user, headers) {
+    return this._http.put("/api/users/update", user, { headers });
+  }
 }
