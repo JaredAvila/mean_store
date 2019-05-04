@@ -3,8 +3,8 @@
 .cart {
   padding: 0 2rem;
   width: 75%;
+  height: auto;
   margin: auto;
-  height: 100vh;
   animation: fadeIn 700ms ease-in-out;
   @include clearFix;
 
@@ -22,7 +22,6 @@
     width: 65%;
     padding: 3rem 1.5rem;
     border-radius: 2px;
-    height: 100vh;
 
     @include respond(tablet) {
       float: none;
@@ -34,6 +33,13 @@
     @include respond(phone) {
       padding: 0;
       border: none;
+    }
+  }
+
+  &__isEmpty {
+    p {
+      font-size: 1.4rem;
+      color: $color-dark;
     }
   }
 

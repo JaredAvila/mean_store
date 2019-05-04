@@ -11,9 +11,10 @@ export class CartComponent implements OnInit, AfterViewChecked {
   constructor(private _item: ItemService) {}
 
   cart: Array<Object>;
+  isEmpty: boolean = false;
   subtotal: number = 0;
   tax: number = 0;
-  total: number = 0;
+  total: Number = 0.01;
   addScript: boolean = false;
   paypalLoad: boolean = true;
   paypalConfig = {
@@ -49,16 +50,22 @@ export class CartComponent implements OnInit, AfterViewChecked {
   }
 
   getTotals() {
-    this.total = 0;
-    this.tax = 0;
-    this.subtotal = 0;
-    for (let i = 0; i < this.cart.length; i++) {
-      let { price } = this.cart[i]["item"];
-      let qty = this.cart[i]["qty"];
-      this.subtotal = this.subtotal + price * qty;
+    if (this.cart.length <= 0) {
+      this.tax = 0;
+      this.total = 0;
+      this.subtotal = 0;
+      this.isEmpty = true;
+    } else {
+      this.isEmpty = false;
+      this.subtotal = 0;
+      for (let i = 0; i < this.cart.length; i++) {
+        let { price } = this.cart[i]["item"];
+        let qty = this.cart[i]["qty"];
+        this.subtotal = this.subtotal + price * qty;
+      }
+      this.tax = this.subtotal * 0.06;
+      this.total = this.subtotal + this.tax;
     }
-    this.tax = this.subtotal * 0.06;
-    this.total = this.subtotal + this.tax;
   }
 
   updateQty(data) {
@@ -95,7 +102,7 @@ export class CartComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     if (!this.addScript) {
       this.addPaypalScript().then(() => {
         paypal.Button.render(this.paypalConfig, "#paypal-button");

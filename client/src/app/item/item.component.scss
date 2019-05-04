@@ -35,15 +35,14 @@
     background-image: linear-gradient(
       9deg,
       $color-orange 0%,
-      $color-orange 80%,
-      $color-light 85%
+      $color-orange 60%,
+      $color-light 65%
     );
     border: 1px solid $color-dark;
     border-radius: 2px;
   }
 
   &__img {
-    // background-image: url(../../assets/img/items/toys/wolverine.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

@@ -1,6 +1,9 @@
 <app-navbar></app-navbar>
 <div class="cart">
   <div class="cart__left">
+    <div class="cart__isEmpty" *ngIf="isEmpty">
+      <p>You have no items in your cart</p>
+    </div>
     <div *ngFor="let item of cart">
       <app-cart-item
         (qtyUpdate)="updateQty($event)"
@@ -23,6 +26,6 @@
       <p class="price--left">Total:</p>
       <p class="price--right">{{ total | currency }}</p>
     </div>
-    <div id='paypal-button'></div>
+    <div id="paypal-button"></div>
   </div>
 </div>
