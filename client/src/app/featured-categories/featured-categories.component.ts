@@ -45,7 +45,7 @@ export class FeaturedCategoriesComponent implements OnInit {
     {
       title: "Outdoors/Garden",
       img: "../../assets/img/categories/outdoor.jpg",
-      tag: "outdoors"
+      tag: "outdoor"
     },
     {
       title: "Video Games",

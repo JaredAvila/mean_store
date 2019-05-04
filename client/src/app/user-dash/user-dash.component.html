@@ -7,7 +7,7 @@
       here you can edit and update your info. When done click the 'Update Info'
       button to save the changes you've made.
     </p>
-    <form action="#" class="dash__left--form">
+    <form class="dash__left--form">
       <input
         type="email"
         placeholder="email"
@@ -57,16 +57,5 @@
       <p class="hasErrors" *ngIf="errors">{{ errors }}</p>
       <p class="hasSuccess" *ngIf="success">{{ success }}</p>
     </form>
-  </div>
-  <div class="dash__right">
-    <p class="dash__right--text">Order History</p>
-    <div class="dash__right--orders">
-      <app-order></app-order>
-      <app-order></app-order>
-      <app-order></app-order>
-      <app-order></app-order>
-      <app-order></app-order>
-      <app-order></app-order>
-    </div>
   </div>
 </div>

@@ -2,10 +2,12 @@
 
 .search {
   position: relative;
+  animation: fadeIn 700ms ease-in-out;
 }
 
 .search-container {
   width: 75%;
+  height: 100%;
   margin: auto;
   text-align: center;
 }

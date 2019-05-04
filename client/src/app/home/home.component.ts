@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { ItemService } from "../item.service";
 import { AddToCartComponent } from "../add-to-cart/add-to-cart.component";
+declare const AOS: any;
 
 @Component({
   selector: "app-home",
@@ -35,5 +36,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.setCart();
+    AOS.init();
   }
 }

@@ -59,19 +59,15 @@ export class NavbarComponent implements OnInit {
 
   getCurrentUser() {
     let token = localStorage.getItem("token");
-    if (!token) {
-      this.user = null;
-    } else {
-      let headers = new HttpHeaders({
-        "Content-Type": "application/json",
-        Authorization: localStorage.token
-      });
-      this._auth.getCurrent(headers).subscribe(user => {
-        if (user) {
-          this.user = user["user"]["_id"];
-        }
-      });
-    }
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      Authorization: localStorage.token
+    });
+    this._auth.getCurrent(headers).subscribe(user => {
+      if (user) {
+        this.user = user["user"];
+      }
+    });
   }
 
   onLogout() {

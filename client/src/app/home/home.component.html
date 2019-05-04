@@ -4,10 +4,25 @@
     <div class="margin-bottom-big">
       <app-sale (addToCart)="onAddToCart($event)"></app-sale>
     </div>
-    <div class="margin-bottom-big">
+    <div
+      class="margin-bottom-big"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      data-aos-delay="200"
+      data-aos-offset="200"
+      data-aos-easing="ease-in-out"
+    >
       <app-popular-items (addToCart)="onAddToCart($event)"></app-popular-items>
     </div>
-    <app-featured-categories></app-featured-categories>
+    <div
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      data-aos-delay="200"
+      data-aos-offset="500"
+      data-aos-easing="ease-in-out"
+    >
+      <app-featured-categories></app-featured-categories>
+    </div>
   </div>
   <div class="atc-modal" id="atc-modal">
     <app-add-to-cart (closeModal)="onCloseModal($event)"></app-add-to-cart>

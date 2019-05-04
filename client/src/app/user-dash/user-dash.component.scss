@@ -10,10 +10,10 @@
   @include clearFix;
   padding: 2rem;
   color: $color-dark;
+  animation: fadeIn 700ms ease-in-out;
 
   &__left {
-    float: left;
-    width: 40%;
+    width: 100vw;
 
     &--welcome {
       letter-spacing: 1rem;

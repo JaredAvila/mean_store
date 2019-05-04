@@ -5,6 +5,7 @@
   width: 75%;
   margin: auto;
   height: 100vh;
+  animation: fadeIn 700ms ease-in-out;
   @include clearFix;
 
   @include respond(tablet) {

@@ -21,21 +21,6 @@ const ItemSchema = new Schema({
     type: Number,
     required: true
   },
-  sales: [
-    {
-      dateOfSale: {
-        type: Date
-      },
-      qty: {
-        type: Number,
-        default: 0
-      },
-      tot: {
-        type: Number,
-        default: 0
-      }
-    }
-  ],
   dateAdded: {
     type: Date,
     default: Date.now

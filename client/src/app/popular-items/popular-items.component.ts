@@ -24,7 +24,7 @@ export class PopularItemsComponent implements OnInit {
   getPopItems() {
     for (let i = 0; i < this.itemIds.length; i++) {
       this._item.getById(this.itemIds[i]).subscribe(item => {
-        this.popItems.push(item['item']);
+        this.popItems.push(item["item"]);
       });
     }
   }

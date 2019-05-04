@@ -23,34 +23,6 @@ const UserSchema = new Schema({
     type: Number,
     default: 101
   },
-  pastOrders: [
-    {
-      name: {
-        type: String,
-        required: true
-      },
-      desc: {
-        type: String,
-        required: true
-      },
-      img: {
-        type: String,
-        required: true
-      },
-      qty: {
-        type: Number,
-        required: true
-      },
-      totalPrice: {
-        type: Number,
-        required: true
-      },
-      purchaseDate: {
-        type: Date,
-        required: true
-      }
-    }
-  ],
   shipping: {
     street: {
       type: String
